@@ -10,6 +10,6 @@ module com.minigames {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens com.minigames to javafx.fxml;
+    opens com.minigames to javafx.fxml, javafx.graphics;
     exports com.minigames;
 }

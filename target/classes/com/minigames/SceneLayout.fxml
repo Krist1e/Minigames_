@@ -4,26 +4,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #7375D8;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane mouseTransparent="true" prefHeight="689.0" prefWidth="1142.0" style="-fx-background-image: url('file:D:/background.gif');" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.Controller">
    <children>
-      <AnchorPane layoutX="-1.0" layoutY="71.0" prefHeight="528.0" prefWidth="900.0" style="-fx-background-color: #fafafa;">
-         <children>
-            <Button layoutX="325.0" layoutY="172.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Minesweeper">
-               <font>
-                  <Font name="Lucida Sans Demibold Italic" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="325.0" layoutY="225.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Tic-Tac-Toe">
-               <font>
-                  <Font name="Lucida Sans Demibold Italic" size="12.0" />
-               </font>
-            </Button>
-            <Button layoutX="325.0" layoutY="275.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Settings">
-               <font>
-                  <Font name="Lucida Sans Demibold Italic" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+      <Button fx:id="MinesweeperStartButton" layoutX="325.0" layoutY="172.0" mnemonicParsing="false" onAction="#MinesweeperClick" prefHeight="38.0" prefWidth="250.0" text="Minesweeper" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="324.6" AnchorPane.topAnchor="172.0">
+         <font>
+            <Font name="Lucida Sans Demibold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="TicTacToeStartButton" layoutX="325.0" layoutY="225.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Tic-Tac-Toe" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="324.6">
+         <font>
+            <Font name="Lucida Sans Demibold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="ChooseSettingsButton" layoutX="325.0" layoutY="275.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Settings" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="324.6">
+         <font>
+            <Font name="Lucida Sans Demibold Italic" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
