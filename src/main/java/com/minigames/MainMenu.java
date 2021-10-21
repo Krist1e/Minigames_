@@ -14,7 +14,6 @@ public class MainMenu extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1200, 700);
         stage.setTitle("Minigames");
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 
