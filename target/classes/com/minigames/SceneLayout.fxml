@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane mouseTransparent="true" prefHeight="689.0" prefWidth="1142.0" style="-fx-background-image: url('file:D:/background.gif');" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.Controller">
+<AnchorPane mouseTransparent="true" prefHeight="689.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.Controller">
    <children>
       <Button fx:id="MinesweeperStartButton" layoutX="325.0" layoutY="172.0" mnemonicParsing="false" onAction="#MinesweeperClick" prefHeight="38.0" prefWidth="250.0" text="Minesweeper" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="324.6" AnchorPane.topAnchor="172.0">
          <font>
-            <Font name="Lucida Sans Demibold Italic" size="12.0" />
+            <Font name="Candara" size="20.0" />
          </font>
       </Button>
       <Button fx:id="TicTacToeStartButton" layoutX="325.0" layoutY="225.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Tic-Tac-Toe" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="324.6">
