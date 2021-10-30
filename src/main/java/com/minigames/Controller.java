@@ -6,21 +6,21 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-public class Controller implements Initializable {
+public class Controller {
+    private Stage stage;
+    private Scene scene;
+    private FXMLLoader fxmlLoader;
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
-
-    @FXML
-    private AnchorPane RootPane;
 
     @FXML
     private Button ChooseSettingsButton;
@@ -32,9 +32,12 @@ public class Controller implements Initializable {
     private Button TicTacToeStartButton;
 
     @FXML
-    private void MinesweeperClick(MouseEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("MinesweeperChooseDifficulty.fxml"));
-        RootPane.getChildren().setAll(pane);
+    public void MinesweeperClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = FXMLLoader.load(getClass().getResource("MinesweeperChooseDifficulty.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -45,20 +48,6 @@ public class Controller implements Initializable {
     @FXML
     void TicTacToeClick(ActionEvent event) {
 
-    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ChooseSettingsButton.setOnAction(event -> {
-
-        });
-        MinesweeperStartButton.setOnAction(event -> {
-
-        });
-        TicTacToeStartButton.setOnAction(event -> {
-
-        });
     }
 }
 
