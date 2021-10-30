@@ -13,6 +13,7 @@ public class MainMenu extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainMenu.class.getResource("SceneLayout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
         stage.setTitle("Minigames");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
