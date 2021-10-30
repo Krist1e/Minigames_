@@ -40,7 +40,15 @@ public class Controller {
 
     @FXML
     void initialize() {
+        ChooseSettingsButton.setOnAction(event -> {
 
+        });
+        MinesweeperStartButton.setOnAction(event -> {
+
+        });
+        TicTacToeStartButton.setOnAction(event -> {
+
+        });
     }
 
 }
