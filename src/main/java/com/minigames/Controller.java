@@ -64,7 +64,19 @@ public class Controller {
                 stage.showAndWait();
         });
         TicTacToeStartButton.setOnAction(event -> {
-
+            TicTacToeStartButton.getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("TicTacToeLayout.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = fxmlLoader.getRoot();
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
         });
     }
 
