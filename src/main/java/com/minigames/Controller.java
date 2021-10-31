@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.w3c.dom.events.MouseEvent;
 
 public class Controller {
 
@@ -29,7 +30,7 @@ public class Controller {
     private Button TicTacToeStartButton;
 
     @FXML
-    void MinesweeperClick(ActionEvent event)  {
+    void MinesweeperClick(ActionEvent event) {
     }
 
     @FXML
@@ -58,6 +59,7 @@ public class Controller {
                 }
                 Parent root = fxmlLoader.getRoot();
                 Stage stage = new Stage();
+                stage.setResizable(false);
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
         });
@@ -65,6 +67,7 @@ public class Controller {
 
         });
     }
+
 }
 
 
