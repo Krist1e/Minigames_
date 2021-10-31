@@ -11,7 +11,7 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainMenu.class.getResource("SceneLayout.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainMenu.class.getResource("TicTacToeLayout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
         stage.setTitle("Minigames");
         stage.setResizable(false);
