@@ -7,14 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Controller {
-    private Stage stage;
-    private Scene scene;
-    private FXMLLoader fxmlLoader;
 
     @FXML
     private ResourceBundle resources;
@@ -32,12 +30,7 @@ public class Controller {
     private Button TicTacToeStartButton;
 
     @FXML
-    public void MinesweeperClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = FXMLLoader.load(getClass().getResource("MinesweeperChooseDifficulty.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
-        stage.setScene(scene);
-        stage.show();
+    void MinesweeperClick(ActionEvent event)  {
     }
 
     @FXML
@@ -48,6 +41,30 @@ public class Controller {
     @FXML
     void TicTacToeClick(ActionEvent event) {
 
+    }
+
+    @FXML
+    void initialize() {
+        ChooseSettingsButton.setOnAction(event -> {
+
+        });
+        MinesweeperStartButton.setOnAction(event -> {
+            MinesweeperStartButton.getScene().getWindow().hide();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("MinesweeperChooseDifficulty.fxml"));
+                try {
+                    fxmlLoader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Parent root = fxmlLoader.getRoot();
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+        });
+        TicTacToeStartButton.setOnAction(event -> {
+
+        });
     }
 }
 
