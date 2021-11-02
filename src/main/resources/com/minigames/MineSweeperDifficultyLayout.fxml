@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.ControllerDiff">
+    <children>
+        <Button fx:id="DifficultyEasyButton" layoutX="393.0" layoutY="210.0" mnemonicParsing="false" onAction="#DifficultyEasyClick" onMouseClicked="#DifficultyEasyClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Easy" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="210.0">
+            <font>
+                <Font name="Yu Gothic Regular" size="15.0" />
+            </font>
+        </Button>
+        <Button fx:id="DifficultyNormalButton" layoutX="393.0" layoutY="268.0" mnemonicParsing="false" onAction="#DifficultyNormalClick" onMouseClicked="#DifficultyNormalClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Normal" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
+            <font>
+                <Font name="Yu Gothic Regular" size="15.0" />
+            </font>
+        </Button>
+        <Button fx:id="DifficultyHardButton" layoutX="393.0" layoutY="325.0" mnemonicParsing="false" onAction="#DifficultyHardClick" onMouseClicked="#DifficultyHardClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Hard" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
+            <font>
+                <Font name="Yu Gothic Regular" size="15.0" />
+            </font>
+        </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="109.0" prefHeight="52.0" prefWidth="440.0" text="Choose difficulty">
+         <font>
+            <Font name="Yu Gothic Regular" size="24.0" />
+         </font>
+      </Label>
+    </children>
+    </AnchorPane>

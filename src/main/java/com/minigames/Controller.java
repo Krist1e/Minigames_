@@ -10,7 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
+//import org.w3c.dom.events.MouseEvent;
 
 public class Controller {
 
@@ -31,6 +31,7 @@ public class Controller {
 
     @FXML
     void MinesweeperClick(ActionEvent event) {
+
     }
 
     @FXML
@@ -44,6 +45,11 @@ public class Controller {
     }
 
     @FXML
+    void DifficultyEasyClick(ActionEvent event) {
+
+    }
+
+    @FXML
     void initialize() {
         ChooseSettingsButton.setOnAction(event -> {
 
@@ -51,7 +57,7 @@ public class Controller {
         MinesweeperStartButton.setOnAction(event -> {
             MinesweeperStartButton.getScene().getWindow().hide();
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("MinesweeperChooseDifficulty.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("MineSweeperDifficultyLayout.fxml"));
                 try {
                     fxmlLoader.load();
                 } catch (IOException e) {
@@ -63,6 +69,7 @@ public class Controller {
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
         });
+
         TicTacToeStartButton.setOnAction(event -> {
             TicTacToeStartButton.getScene().getWindow().hide();
             FXMLLoader fxmlLoader = new FXMLLoader();
