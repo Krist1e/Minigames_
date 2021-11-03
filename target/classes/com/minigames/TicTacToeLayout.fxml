@@ -6,9 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.TicTacToe">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@TicTacToeBackground.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.TicTacToe">
     <children>
-        <FlowPane layoutX="264.0" layoutY="146.0" prefHeight="450.0" prefWidth="453.0">
+        <FlowPane layoutX="343.0" layoutY="147.0" prefHeight="450.0" prefWidth="453.0" AnchorPane.leftAnchor="343.0" AnchorPane.rightAnchor="303.4" AnchorPane.topAnchor="147.0">
             <children>
                 <Button fx:id="button1" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" />
                 <Button fx:id="button3" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" />
@@ -21,12 +21,12 @@
                 <Button fx:id="button9" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" />
             </children>
         </FlowPane>
-        <Text fx:id="winnerText" layoutX="372.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic-Tac-Toe" textAlignment="CENTER" wrappingWidth="237.9443359375">
+        <Text fx:id="winnerText" layoutX="451.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic-Tac-Toe" textAlignment="CENTER" wrappingWidth="237.9443359375" AnchorPane.leftAnchor="451.0" AnchorPane.rightAnchor="411.0556640625" AnchorPane.topAnchor="80.8046875">
             <font>
                 <Font name="Yu Gothic Regular" size="40.0" />
             </font>
         </Text>
-        <Button layoutX="457.0" layoutY="625.0" mnemonicParsing="false" onAction="#restartGame" text="Restart">
+        <Button layoutX="530.0" layoutY="623.0" mnemonicParsing="false" onAction="#restartGame" text="Restart" AnchorPane.leftAnchor="530.0" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="623.0">
          <font>
             <Font name="Yu Gothic Regular" size="17.0" />
          </font></Button>
