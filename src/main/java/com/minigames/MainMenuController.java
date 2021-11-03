@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
-public class Controller {
+public class MainMenuController {
 
     @FXML
     private ResourceBundle resources;
