@@ -1,5 +1,6 @@
 package com.minigames;
 
+import javafx.event.EventHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,7 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-//import org.w3c.dom.events.MouseEvent;
+import org.w3c.dom.events.MouseEvent;
 
 public class Controller {
 
@@ -50,25 +51,28 @@ public class Controller {
     }
 
     @FXML
-    void initialize() {
+    public void initialize() {
         ChooseSettingsButton.setOnAction(event -> {
 
         });
+
         MinesweeperStartButton.setOnAction(event -> {
             MinesweeperStartButton.getScene().getWindow().hide();
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("MineSweeperDifficultyLayout.fxml"));
-                try {
-                    fxmlLoader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Parent root = fxmlLoader.getRoot();
-                Stage stage = new Stage();
-                stage.setResizable(false);
-                stage.setScene(new Scene(root));
-                stage.showAndWait();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("MineSweeperDifficultyLayout.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = fxmlLoader.getRoot();
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+
         });
+
 
         TicTacToeStartButton.setOnAction(event -> {
             TicTacToeStartButton.getScene().getWindow().hide();
