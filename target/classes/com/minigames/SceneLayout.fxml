@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="RootPane" prefHeight="689.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.Controller">
+<AnchorPane fx:id="RootPane" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.Controller">
    <children>
       <Button fx:id="MinesweeperStartButton" layoutX="393.0" layoutY="210.0" mnemonicParsing="false" onAction="#MinesweeperClick" onMouseClicked="#MinesweeperClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Minesweeper" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="210.0">
          <font>

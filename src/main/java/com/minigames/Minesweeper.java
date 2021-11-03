@@ -8,9 +8,7 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
-public class MineSweeper extends MainMenu {
-
-
+public class Minesweeper extends MainMenu {
 
     @Override
     public void start(Stage stage) throws IOException {

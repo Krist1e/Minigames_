@@ -45,21 +45,29 @@ public class Controller {
 
     }
 
-    @FXML
-    void DifficultyEasyClick(ActionEvent event) {
-
-    }
 
     @FXML
     public void initialize() {
         ChooseSettingsButton.setOnAction(event -> {
-
+            ChooseSettingsButton.getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("SettingsLayout.fxml"));
+            try {
+                fxmlLoader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = fxmlLoader.getRoot();
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
         });
 
         MinesweeperStartButton.setOnAction(event -> {
             MinesweeperStartButton.getScene().getWindow().hide();
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("MineSweeperDifficultyLayout.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("MinesweeperDifficultyLayout.fxml"));
             try {
                 fxmlLoader.load();
             } catch (IOException e) {
