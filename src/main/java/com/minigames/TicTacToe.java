@@ -62,6 +62,7 @@ public class TicTacToe implements Initializable {
     void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         winnerText.setText("Tic-Tac-Toe");
+        playerTurn = 0;
     }
 
     public void resetButton(Button button){
