@@ -94,7 +94,7 @@ public class MainMenuController {
             Stage stage = new Stage();
             stage.setResizable(false);
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         });
     }
 

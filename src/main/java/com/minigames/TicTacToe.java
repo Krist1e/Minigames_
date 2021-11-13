@@ -88,7 +88,7 @@ public class TicTacToe implements Initializable {
         }
     }
 
-    public void checkIfGameIsOver(){
+    public void checkIfGameIsOver() {
         for (int a = 0; a < 8; a++) {
             String line;
             switch (a) {

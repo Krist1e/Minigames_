@@ -9,6 +9,7 @@ module com.minigames {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.desktop;
 
     opens com.minigames to javafx.fxml, javafx.graphics;
     exports com.minigames;
