@@ -16,9 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-/**
- * @author Almas Baimagambetov (almaslvl@gmail.com)
- */
 public class InverseGrid extends Application {
 
     private static final int GRID_SIZE_IN_CELLS = 4;
