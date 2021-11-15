@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -47,7 +49,6 @@ public class TicTacToe implements Initializable {
 
     ArrayList<Button> buttons;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
@@ -79,7 +80,7 @@ public class TicTacToe implements Initializable {
     }
 
     public void setPlayerSymbol(Button button){
-        if(playerTurn % 2 == 0){
+        if(playerTurn % 2 == 0) {
             button.setText("X");
             playerTurn = 1;
         } else{
@@ -121,14 +122,14 @@ public class TicTacToe implements Initializable {
                     break;
             }
 
-            //X winner
+            //First player is a winner
             if (line.equals("XXX")) {
-                winnerText.setText("X won!");
+                winnerText.setText("Player 1 won!");
             }
 
-            //O winner
+            //Second player is a winner
             else if (line.equals("OOO")) {
-                winnerText.setText("O won!");
+                winnerText.setText("Player 2 won!");
             }
         }
     }
