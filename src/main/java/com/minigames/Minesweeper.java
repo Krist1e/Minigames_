@@ -15,22 +15,22 @@ import javafx.stage.Stage;
 
 public class Minesweeper extends Application {
 
-        private static final int TILE_SIZE = 50;
-        private static final int W = 1100;
-        private static final int H = 700;
+        private static final int tileSize = 100;
+        private static final int length = 1100;
+        private static final int height = 700;
 
-        private static final int X_TILES = W / TILE_SIZE;
-        private static final int Y_TILES = H / TILE_SIZE;
+        private static final int xTiles = length / tileSize;
+        private static final int yTiles = height / tileSize;
 
-        private Tile[][] grid = new Tile[X_TILES][Y_TILES];
+        private Tile[][] grid = new Tile[xTiles][yTiles];
         private Scene scene;
 
-        private Parent createContent() {
+        private Parent generateField() {
             Pane root = new Pane();
-            root.setPrefSize(W, H);
+            root.setPrefSize(length, height);
 
-            for (int y = 0; y < Y_TILES; y++) {
-                for (int x = 0; x < X_TILES; x++) {
+            for (int y = 0; y < yTiles; y++) {
+                for (int x = 0; x < xTiles; x++) {
                     Tile tile = new Tile(x, y, Math.random() < 0.2);
 
                     grid[x][y] = tile;
@@ -38,8 +38,8 @@ public class Minesweeper extends Application {
                 }
             }
 
-            for (int y = 0; y < Y_TILES; y++) {
-                for (int x = 0; x < X_TILES; x++) {
+            for (int y = 0; y < yTiles; y++) {
+                for (int x = 0; x < xTiles; x++) {
                     Tile tile = grid[x][y];
 
                     if (tile.hasBomb)
@@ -80,8 +80,8 @@ public class Minesweeper extends Application {
                 int newX = tile.x + dx;
                 int newY = tile.y + dy;
 
-                if (newX >= 0 && newX < X_TILES
-                        && newY >= 0 && newY < Y_TILES) {
+                if (newX >= 0 && newX < xTiles
+                        && newY >= 0 && newY < yTiles) {
                     neighbors.add(grid[newX][newY]);
                 }
             }
@@ -94,7 +94,7 @@ public class Minesweeper extends Application {
             private boolean hasBomb;
             private boolean isOpen = false;
 
-            private Rectangle border = new Rectangle(TILE_SIZE - 2, TILE_SIZE - 2);
+            private Rectangle border = new Rectangle(tileSize - 2, tileSize - 2);
             private Text text = new Text();
 
             public Tile(int x, int y, boolean hasBomb) {
@@ -110,8 +110,8 @@ public class Minesweeper extends Application {
 
                 getChildren().addAll(border, text);
 
-                setTranslateX(x * TILE_SIZE);
-                setTranslateY(y * TILE_SIZE);
+                setTranslateX(x * tileSize);
+                setTranslateY(y * tileSize);
 
                 setOnMouseClicked(e -> open());
             }
@@ -122,7 +122,7 @@ public class Minesweeper extends Application {
 
                 if (hasBomb) {
                     System.out.println("Game Over");
-                    scene.setRoot(createContent());
+                    scene.setRoot(generateField());
                     return;
                 }
 
@@ -137,14 +137,9 @@ public class Minesweeper extends Application {
         }
 
         @Override
-        public void start(Stage stage) throws Exception {
-            scene = new Scene(createContent());
-
+        public void start(Stage stage) {
+            scene = new Scene(generateField());
             stage.setScene(scene);
             stage.show();
-        }
-
-        public static void main(String[] args) {
-            launch(args);
         }
 }
