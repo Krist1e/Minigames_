@@ -11,6 +11,8 @@ module com.minigames {
     requires eu.hansolo.tilesfx;
     requires java.desktop;
     requires javafx.media;
+    requires org.junit.jupiter.api;
+    requires junit;
 
     opens com.minigames to javafx.fxml, javafx.graphics;
     exports com.minigames;

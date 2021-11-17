@@ -1,3 +1,8 @@
 D:\ОПИ\Minigames\src\main\java\module-info.java
+D:\ОПИ\Minigames\src\main\java\com\minigames\TicTacToe.java
 D:\ОПИ\Minigames\src\main\java\com\minigames\MainMenu.java
-D:\ОПИ\Minigames\src\main\java\com\minigames\Controller.java
+D:\ОПИ\Minigames\src\main\java\com\minigames\MainMenuController.java
+D:\ОПИ\Minigames\src\main\java\com\minigames\SettingsController.java
+D:\ОПИ\Minigames\src\main\java\com\minigames\InverseGrid.java
+D:\ОПИ\Minigames\src\main\java\com\minigames\MinesweeperDifficultyController.java
+D:\ОПИ\Minigames\src\main\java\com\minigames\Minesweeper.java
