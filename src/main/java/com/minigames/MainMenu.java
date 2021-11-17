@@ -19,10 +19,7 @@ public class MainMenu extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
 
-        launch(args);
-    }
     public void stop(){
         System.out.println("Thank you for playing! Have a great day! ");
     }
