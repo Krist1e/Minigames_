@@ -138,12 +138,11 @@ public class TicTacToe implements Initializable {
             }
 
             //Draw condition
-             if (Turn==9){
-                 if (!line.equals("XXX") && !line.equals("OOO")) {
+            if (!line.equals("XXX") && !line.equals("OOO") && (Turn==9)) {
                      winnerText.setText("Draw!");
 
-                 }
-             }
+            }
+
         }
 
     }
