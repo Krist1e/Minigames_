@@ -46,6 +46,7 @@ public class TicTacToe implements Initializable {
     private Text winnerText;
 
     private int playerTurn = 0;
+    private int Turn = 0;
 
     ArrayList<Button> buttons;
 
@@ -64,6 +65,7 @@ public class TicTacToe implements Initializable {
         buttons.forEach(this::resetButton);
         winnerText.setText("Tic-Tac-Toe");
         playerTurn = 0;
+        Turn = 0;
     }
 
     public void resetButton(Button button){
@@ -75,6 +77,7 @@ public class TicTacToe implements Initializable {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
             button.setDisable(true);
+            Turn=Turn+1;
             checkIfGameIsOver();
         });
     }
@@ -90,6 +93,7 @@ public class TicTacToe implements Initializable {
     }
 
     public void checkIfGameIsOver() {
+
         for (int a = 0; a < 8; a++) {
             String line;
             switch (a) {
@@ -130,7 +134,17 @@ public class TicTacToe implements Initializable {
             //Second player is a winner
             else if (line.equals("OOO")) {
                 winnerText.setText("Player 2 won!");
+
             }
+
+            //Draw condition
+             if (Turn==9){
+                 if (!line.equals("XXX") && !line.equals("OOO")) {
+                     winnerText.setText("Draw!");
+
+                 }
+             }
         }
+
     }
 }
