@@ -55,52 +55,24 @@ public class MinesweeperDifficultyController {
     void initialize() {
         MinesweeperEasy.setOnAction(event -> {
             MinesweeperEasy.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("MinesweeperEasy.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            Minesweeper ctc = new Minesweeper();
+            ctc.start(Minesweeper.classStage);
+
 
         });
         MinesweeperMedium.setOnAction(event -> {
+            //Need to add boolean to change length and width of minesweeper
             MinesweeperMedium.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("MinesweeperMedium.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            Minesweeper ctc = new Minesweeper();
+            ctc.start(Minesweeper.classStage);
 
         });
         MinesweeperHard.setOnAction(event -> {
             MinesweeperHard.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("MinesweeperHard.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-
+            Minesweeper ctc = new Minesweeper();
+            ctc.start(Minesweeper.classStage);
         });
+
         ReturnToMainMenu.setOnAction(event -> {
             ReturnToMainMenu.getScene().getWindow().hide();
             FXMLLoader fxmlLoader = new FXMLLoader();
