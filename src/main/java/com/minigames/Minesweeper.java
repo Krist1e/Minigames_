@@ -5,10 +5,12 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -102,6 +104,7 @@ public class Minesweeper extends Application {
         private int x, y;
         private boolean hasBomb;
         private boolean isOpen = false;
+        Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
 
         private Rectangle border = new Rectangle(tileSize - 2, tileSize - 2);
         private Text text = new Text();
@@ -126,12 +129,12 @@ public class Minesweeper extends Application {
 
             setOnMouseClicked(e -> {
                 if(e.getButton() == MouseButton.SECONDARY){
-                    Paint Flag =border.getStroke();
-                    if (Flag == Color.BLACK && !isOpen)
-                        border.setStroke(Color.RED);
+                    Paint Flag =border.getFill();
+                    if (Flag == Color.LIGHTGRAY)
+                        border.setFill(new ImagePattern(flag));
 
-                    else
-                        border.setStroke(Color.BLACK);
+                    else if (Flag != null)
+                        border.setFill(Color.LIGHTGRAY);
 
                 }
                 else
@@ -156,7 +159,6 @@ public class Minesweeper extends Application {
             isOpen = true;
             text.setVisible(true);
             border.setFill(null);
-            border.setStroke(Color.BLACK);
             WinReq++;
             CheckIfWin();
 

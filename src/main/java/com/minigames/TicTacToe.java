@@ -46,6 +46,7 @@ public class TicTacToe implements Initializable {
     private Text winnerText;
 
     private int playerTurn = 0;
+
     private int Turn = 0;
 
     ArrayList<Button> buttons;
