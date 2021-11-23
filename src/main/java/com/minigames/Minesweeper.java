@@ -19,13 +19,12 @@ import javafx.stage.Stage;
 
 public class Minesweeper extends Application {
 
-    private static final int tileSize = 100;
+    private static final int tileSize = 50;
     private static final int length = 1100;
-    private static final int height = 700;
+    private static final int height = 750;
 
-
-    private static final int xTiles = length / tileSize;
-    private static final int yTiles = height / tileSize;
+    private static int xTiles = length / tileSize;
+    private static int yTiles = height / tileSize;
 
     private Tile[][] grid = new Tile[xTiles][yTiles];
     private Scene scene;
@@ -35,7 +34,21 @@ public class Minesweeper extends Application {
 
     private Parent generateField() {
         Pane root = new Pane();
-        root.setPrefSize(length, height);
+
+        if (MinesweeperDifficultyController.EasyDiff) {
+            root.setPrefSize(length-600, height-400);
+            xTiles = (length-600)/tileSize;
+            yTiles = (height-400)/tileSize;
+        }
+
+        else if (MinesweeperDifficultyController.MediumDiff) {
+            root.setPrefSize(length-300, height-150);
+            xTiles = (length-300)/tileSize;
+            yTiles = (height-150)/tileSize;
+        }
+
+        else
+            root.setPrefSize(length, height);
 
         for (int y = 0; y < yTiles; y++) {
             for (int x = 0; x < xTiles; x++) {

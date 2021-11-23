@@ -78,7 +78,7 @@ public class TicTacToe implements Initializable {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
             button.setDisable(true);
-            Turn=Turn+1;
+            Turn++;
             checkIfGameIsOver();
         });
     }

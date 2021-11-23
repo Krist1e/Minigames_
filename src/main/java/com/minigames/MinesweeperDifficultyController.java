@@ -20,7 +20,7 @@ public class MinesweeperDifficultyController {
     private URL location;
 
     @FXML
-    private Button MinesweeperEasy;
+    private  Button MinesweeperEasy;
 
     @FXML
     private Button MinesweeperHard;
@@ -30,6 +30,10 @@ public class MinesweeperDifficultyController {
 
     @FXML
     private Button ReturnToMainMenu;
+
+    public static Boolean EasyDiff  = false;
+
+    public static Boolean MediumDiff = false;
 
     @FXML
     void MinesweeperChooseEasy(ActionEvent event) {
@@ -52,8 +56,9 @@ public class MinesweeperDifficultyController {
     }
 
     @FXML
-    void initialize() {
+    public void initialize() {
         MinesweeperEasy.setOnAction(event -> {
+            EasyDiff = true;
             MinesweeperEasy.getScene().getWindow().hide();
             Minesweeper ctc = new Minesweeper();
             ctc.start(Minesweeper.classStage);
@@ -61,7 +66,7 @@ public class MinesweeperDifficultyController {
 
         });
         MinesweeperMedium.setOnAction(event -> {
-            //Need to add boolean to change length and width of minesweeper
+            MediumDiff = true;
             MinesweeperMedium.getScene().getWindow().hide();
             Minesweeper ctc = new Minesweeper();
             ctc.start(Minesweeper.classStage);
@@ -88,7 +93,5 @@ public class MinesweeperDifficultyController {
             stage.setScene(new Scene(root));
             stage.show();
         });
-
-
     }
 }
