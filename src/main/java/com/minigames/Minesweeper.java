@@ -68,7 +68,6 @@ public class Minesweeper extends Application {
                     continue;
                 }
 
-
                 long bombs = getNeighbors(tile).stream().filter(t -> t.hasBomb).count();
 
                 if (bombs > 0)
