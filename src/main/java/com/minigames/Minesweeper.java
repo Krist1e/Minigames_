@@ -21,14 +21,14 @@ import javafx.stage.Stage;
 
 public class Minesweeper extends Application {
 
-    private static final int tileSize = 50;
-    private static final int length = 1100;
-    private static final int height = 700;
+    private static final double tileSize = 50;
+    private static final double length = 1100;
+    private static final double height = 700;
 
-    private static int xTiles = length / tileSize;
-    private static int yTiles = height / tileSize;
+    private static double xTiles = length / tileSize;
+    private static double yTiles = height / tileSize;
 
-    private Tile[][] grid = new Tile[xTiles][yTiles];
+    private Tile[][] grid = new Tile[(int) xTiles][(int)yTiles];
     private Scene scene;
     public int FlagCounter = 0;
     public int AllBombs = 0;
