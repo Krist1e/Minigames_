@@ -2,9 +2,11 @@ package com.minigames;
 import java.util.ArrayList;
 import java.util.List;
 
+import eu.hansolo.tilesfx.Tile;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
@@ -28,9 +30,13 @@ public class Minesweeper extends Application {
 
     private Tile[][] grid = new Tile[xTiles][yTiles];
     private Scene scene;
+    public int FlagCounter = 0;
     public int AllBombs = 0;
     public int WinReq = 0;
     static Stage classStage = new Stage();
+    private Label BombCounter = new Label();
+    private Rectangle TopFlag = new Rectangle(40, 40);
+    Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
 
     private Parent generateField() {
         Pane root = new Pane();
@@ -39,18 +45,26 @@ public class Minesweeper extends Application {
             root.setPrefSize(length-600, height-350);
             xTiles = (length-600)/tileSize;
             yTiles = (height-400)/tileSize;
+            TopFlag.setTranslateX(length-700);
+            BombCounter.setTranslateX(length-742);
         }
 
         else if (MinesweeperDifficultyController.MediumDiff) {
             root.setPrefSize(length-300, height-100);
             xTiles = (length-300)/tileSize;
             yTiles = (height-150)/tileSize;
+            TopFlag.setTranslateX(length-400);
+            BombCounter.setTranslateX(length-442);
         }
 
-        else
-            root.setPrefSize(length, height+50);
+        else {
+            root.setPrefSize(length, height + 50);
+            TopFlag.setTranslateX(length-120);
+            BombCounter.setTranslateX(length-162);
+        }
 
         root.setStyle("-fx-background-color: INDIANRED");
+
 
         for (int y = 0; y < yTiles; y++) {
             for (int x = 0; x < xTiles; x++) {
@@ -76,6 +90,14 @@ public class Minesweeper extends Application {
                     tile.text.setText(String.valueOf(bombs));
             }
         }
+        TopFlag.setFill(new ImagePattern(flag));
+        TopFlag.setTranslateY(5);
+
+        BombCounter.setText(String.valueOf(AllBombs));
+        BombCounter.setFont(Font.font(25));
+        BombCounter.setTranslateY(5);
+
+        root.getChildren().addAll(TopFlag,BombCounter);
 
         return root;
     }
@@ -118,7 +140,7 @@ public class Minesweeper extends Application {
         private int x, y;
         private boolean hasBomb;
         private boolean isOpen = false;
-        Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
+
 
         private Rectangle border = new Rectangle(tileSize - 2, tileSize - 2);
         private Text text = new Text();
@@ -127,6 +149,7 @@ public class Minesweeper extends Application {
             this.x = x;
             this.y = y;
             this.hasBomb = hasBomb;
+            Minesweeper f = new Minesweeper();
 
             border.setStroke(Color.BLACK);
             border.setFill(Color.LIGHTGRAY);
@@ -144,11 +167,17 @@ public class Minesweeper extends Application {
             setOnMouseClicked(e -> {
                 if(e.getButton() == MouseButton.SECONDARY){
                     Paint Flag =border.getFill();
-                    if (Flag == Color.LIGHTGRAY)
-                        border.setFill(new ImagePattern(flag));
+                    if (Flag == Color.LIGHTGRAY) {
+                        border.setFill(new ImagePattern(f.flag));
+                        FlagCounter++;
+                        BombCounter.setText(String.valueOf(AllBombs-FlagCounter));
+                    }
 
-                    else if (Flag != Color.DARKSALMON)
+                    else if (Flag != Color.DARKSALMON) {
                         border.setFill(Color.LIGHTGRAY);
+                        FlagCounter--;
+                        BombCounter.setText(String.valueOf(AllBombs-FlagCounter));
+                    }
 
                 }
                 else
