@@ -2,12 +2,17 @@ package com.minigames;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,6 +72,23 @@ public class TicTacToe implements Initializable {
         winnerText.setText("Tic-Tac-Toe");
         playerTurn = 0;
         Turn = 0;
+    }
+
+    @FXML
+    void ReturnToMenu(ActionEvent event) {
+        button1.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("SceneLayout.fxml"));
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent root = fxmlLoader.getRoot();
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void resetButton(Button button){
