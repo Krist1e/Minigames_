@@ -21,7 +21,7 @@ public class Minesweeper extends Application {
 
     private static final int tileSize = 50;
     private static final int length = 1100;
-    private static final int height = 750;
+    private static final int height = 700;
 
     private static int xTiles = length / tileSize;
     private static int yTiles = height / tileSize;
@@ -36,19 +36,21 @@ public class Minesweeper extends Application {
         Pane root = new Pane();
 
         if (MinesweeperDifficultyController.EasyDiff) {
-            root.setPrefSize(length-600, height-400);
+            root.setPrefSize(length-600, height-350);
             xTiles = (length-600)/tileSize;
             yTiles = (height-400)/tileSize;
         }
 
         else if (MinesweeperDifficultyController.MediumDiff) {
-            root.setPrefSize(length-300, height-150);
+            root.setPrefSize(length-300, height-100);
             xTiles = (length-300)/tileSize;
             yTiles = (height-150)/tileSize;
         }
 
         else
-            root.setPrefSize(length, height);
+            root.setPrefSize(length, height+50);
+
+        root.setStyle("-fx-background-color: INDIANRED");
 
         for (int y = 0; y < yTiles; y++) {
             for (int x = 0; x < xTiles; x++) {
@@ -137,7 +139,7 @@ public class Minesweeper extends Application {
             getChildren().addAll(border, text);
 
             setTranslateX(x * tileSize);
-            setTranslateY(y * tileSize);
+            setTranslateY(y * tileSize + 50);
 
             setOnMouseClicked(e -> {
                 if(e.getButton() == MouseButton.SECONDARY){
@@ -145,7 +147,7 @@ public class Minesweeper extends Application {
                     if (Flag == Color.LIGHTGRAY)
                         border.setFill(new ImagePattern(flag));
 
-                    else if (Flag != null)
+                    else if (Flag != Color.DARKSALMON)
                         border.setFill(Color.LIGHTGRAY);
 
                 }
@@ -170,7 +172,7 @@ public class Minesweeper extends Application {
 
             isOpen = true;
             text.setVisible(true);
-            border.setFill(null);
+            border.setFill(Color.DARKSALMON);
             WinReq++;
             CheckIfWin();
 
