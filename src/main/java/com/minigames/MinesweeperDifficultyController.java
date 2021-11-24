@@ -1,15 +1,11 @@
 package com.minigames;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class MinesweeperDifficultyController {
 
@@ -35,6 +31,8 @@ public class MinesweeperDifficultyController {
 
     public static Boolean MediumDiff = false;
 
+    public static Boolean Menu = false;
+
     @FXML
     void MinesweeperChooseEasy(ActionEvent event) {
 
@@ -58,6 +56,7 @@ public class MinesweeperDifficultyController {
     @FXML
     public void initialize() {
         MinesweeperEasy.setOnAction(event -> {
+            MediumDiff = false;
             EasyDiff = true;
             MinesweeperEasy.getScene().getWindow().hide();
             MineApp();
@@ -66,30 +65,23 @@ public class MinesweeperDifficultyController {
 
         });
         MinesweeperMedium.setOnAction(event -> {
+            EasyDiff = false;
             MediumDiff = true;
             MinesweeperMedium.getScene().getWindow().hide();
             MineApp();
 
         });
         MinesweeperHard.setOnAction(event -> {
+            EasyDiff = false;
+            MediumDiff = false;
             MinesweeperHard.getScene().getWindow().hide();
             MineApp();
         });
 
         ReturnToMainMenu.setOnAction(event -> {
             ReturnToMainMenu.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("SceneLayout.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.show();
+            Menu = true;
+            MainMenuController.SceneControl();
         });
     }
 

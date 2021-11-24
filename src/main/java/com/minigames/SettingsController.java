@@ -1,27 +1,64 @@
 package com.minigames;
 
-
-import javafx.application.Application;
+import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
 
-public class SettingsController extends Application {
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainMenu.class.getResource("SettingsLayout.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
-        String musicFile = "soundtrack1.mp3";
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-        stage.setTitle("Minigames");
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
+public class SettingsController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button ReturnButton;
+
+    @FXML
+    private Button SoundButton;
+
+    @FXML
+    void ReturnClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SoundClick(ActionEvent event) {
+
+    }
+
+    public static Boolean OnOffSound = false;
+
+    public static Boolean SettingMenu = false;
+
+    @FXML
+    public void initialize() {
+        ReturnButton.setOnAction(event -> {
+            ReturnButton.getScene().getWindow().hide();
+            SettingMenu = true;
+            MainMenuController.SceneControl();
+        });
+
+        SoundButton.setOnAction(event -> {
+            String musicFile = "soundtrack1.mp3";
+            Media sound = new Media(new File(musicFile).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            if (!OnOffSound) {
+                mediaPlayer.play();
+            }
+            else
+                mediaPlayer.stop();
+
+        });
     }
 }
+
+

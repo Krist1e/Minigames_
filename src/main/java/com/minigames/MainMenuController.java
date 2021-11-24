@@ -29,6 +29,12 @@ public class MainMenuController {
     @FXML
     private Button TicTacToeStartButton;
 
+    public static Boolean Settings = false;
+
+    public static Boolean MineSweepDiff1 = false;
+
+    public static Boolean TicTac = false;
+
     @FXML
     void MinesweeperClick(ActionEvent event) {
 
@@ -49,55 +55,60 @@ public class MainMenuController {
     public void initialize() {
         ChooseSettingsButton.setOnAction(event -> {
             ChooseSettingsButton.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("SettingsLayout.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            Settings = true;
+            SceneControl();
         });
 
         MinesweeperStartButton.setOnAction(event -> {
             MinesweeperStartButton.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("MinesweeperDifficultyLayout.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-
+            MineSweepDiff1 = true;
+            SceneControl();
         });
 
 
         TicTacToeStartButton.setOnAction(event -> {
             TicTacToeStartButton.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("TicTacToeLayout.fxml"));
-            try {
-                fxmlLoader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = fxmlLoader.getRoot();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setScene(new Scene(root));
-            stage.show();
+            TicTac = true;
+            SceneControl();
         });
     }
 
+    public static void SceneControl() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        if (TicTac)
+            fxmlLoader.setLocation(MainMenuController.class.getResource("TicTacToeLayout.fxml"));
+        if (MineSweepDiff1)
+            fxmlLoader.setLocation(MainMenuController.class.getResource("MinesweeperDifficultyLayout.fxml"));
+        if (Settings)
+            fxmlLoader.setLocation(MainMenuController.class.getResource("SettingsLayout.fxml"));
+        if (Minesweeper.MineSweepDiff2)
+            fxmlLoader.setLocation(Minesweeper.class.getResource("MinesweeperDifficultyLayout.fxml"));
+        if (MinesweeperDifficultyController.Menu)
+            fxmlLoader.setLocation(MinesweeperDifficultyController.class.getResource("SceneLayout.fxml"));
+        if (TicTacToe.TicMenu)
+            fxmlLoader.setLocation(TicTacToe.class.getResource("SceneLayout.fxml"));
+        if (SettingsController.SettingMenu)
+            fxmlLoader.setLocation(SettingsController.class.getResource("SceneLayout.fxml"));
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Parent root = fxmlLoader.getRoot();
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        TicTac = false;
+        MineSweepDiff1 = false;
+        Settings = false;
+        Minesweeper.MineSweepDiff2 = false;
+        MinesweeperDifficultyController.Menu = false;
+        TicTacToe.TicMenu = false;
+        SettingsController.SettingMenu = false;
+    }
 }
 
 

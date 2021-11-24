@@ -50,6 +50,8 @@ public class TicTacToe implements Initializable {
     @FXML
     private Text winnerText;
 
+    public static Boolean TicMenu = false;
+
     private int playerTurn = 0;
 
     private int Turn = 0;
@@ -77,18 +79,8 @@ public class TicTacToe implements Initializable {
     @FXML
     void ReturnToMenu(ActionEvent event) {
         button1.getScene().getWindow().hide();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("SceneLayout.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = fxmlLoader.getRoot();
-        Stage stage = new Stage();
-        stage.setResizable(false);
-        stage.setScene(new Scene(root));
-        stage.show();
+        TicMenu = true;
+        MainMenuController.SceneControl();
     }
 
     public void resetButton(Button button){

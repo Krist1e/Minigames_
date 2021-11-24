@@ -2,10 +2,10 @@ package com.minigames;
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.hansolo.tilesfx.Tile;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
@@ -28,14 +28,16 @@ public class Minesweeper extends Application {
     private static double xTiles = length / tileSize;
     private static double yTiles = height / tileSize;
 
-    private Tile[][] grid = new Tile[(int) xTiles][(int)yTiles];
+    private final Tile[][] grid = new Tile[(int) xTiles][(int)yTiles];
     private Scene scene;
     public int FlagCounter = 0;
     public int AllBombs = 0;
     public int WinReq = 0;
     static Stage classStage = new Stage();
-    private Label BombCounter = new Label();
-    private Rectangle TopFlag = new Rectangle(40, 40);
+    private final Label BombCounter = new Label();
+    private final Rectangle TopFlag = new Rectangle(40, 40);
+    private final Button DiffReturn = new Button();
+    public static Boolean MineSweepDiff2 = false;
     Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
 
     private Parent generateField() {
@@ -65,6 +67,18 @@ public class Minesweeper extends Application {
 
         root.setStyle("-fx-background-color: INDIANRED");
 
+        DiffReturn.setText("Return");
+        DiffReturn.setFont(Font.font(20));
+        DiffReturn.setTranslateX(5);
+        DiffReturn.setTranslateY(3);
+        DiffReturn.setPrefSize(130, 30);
+        DiffReturn.setStyle("-fx-background-color: DARKSALMON");
+        DiffReturn.setOnMouseClicked(event -> {
+            DiffReturn.getScene().getWindow().hide();
+            MineSweepDiff2 = true;
+            MainMenuController.SceneControl();
+
+        });
 
         for (int y = 0; y < yTiles; y++) {
             for (int x = 0; x < xTiles; x++) {
@@ -97,7 +111,7 @@ public class Minesweeper extends Application {
         BombCounter.setFont(Font.font(25));
         BombCounter.setTranslateY(5);
 
-        root.getChildren().addAll(TopFlag,BombCounter);
+        root.getChildren().addAll(TopFlag,BombCounter,DiffReturn);
 
         return root;
     }
@@ -137,7 +151,7 @@ public class Minesweeper extends Application {
     }
 
     private class Tile extends StackPane {
-        private int x, y;
+        private final int x, y;
         private boolean hasBomb;
         private boolean isOpen = false;
 
