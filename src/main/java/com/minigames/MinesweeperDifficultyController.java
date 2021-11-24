@@ -60,22 +60,20 @@ public class MinesweeperDifficultyController {
         MinesweeperEasy.setOnAction(event -> {
             EasyDiff = true;
             MinesweeperEasy.getScene().getWindow().hide();
-            Minesweeper ctc = new Minesweeper();
-            ctc.start(Minesweeper.classStage);
+            MineApp();
+
 
 
         });
         MinesweeperMedium.setOnAction(event -> {
             MediumDiff = true;
             MinesweeperMedium.getScene().getWindow().hide();
-            Minesweeper ctc = new Minesweeper();
-            ctc.start(Minesweeper.classStage);
+            MineApp();
 
         });
         MinesweeperHard.setOnAction(event -> {
             MinesweeperHard.getScene().getWindow().hide();
-            Minesweeper ctc = new Minesweeper();
-            ctc.start(Minesweeper.classStage);
+            MineApp();
         });
 
         ReturnToMainMenu.setOnAction(event -> {
@@ -93,5 +91,10 @@ public class MinesweeperDifficultyController {
             stage.setScene(new Scene(root));
             stage.show();
         });
+    }
+
+    private void MineApp() {
+        Minesweeper OpenMineSweeper = new Minesweeper();
+        OpenMineSweeper.start(Minesweeper.classStage);
     }
 }
