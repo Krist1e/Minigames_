@@ -18,5 +18,4 @@ module com.minigames {
 
     opens com.minigames to javafx.base, javafx.fxml, javafx.graphics;
     exports com.minigames;
-    exports Tests;
 }

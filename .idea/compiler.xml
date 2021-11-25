@@ -9,5 +9,11 @@
         <module name="Minigames" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Minigames" options="--add-exports org.junit.platform.commons/org.junit.platform.commons.util=com.minigames" />
+    </option>
   </component>
 </project>

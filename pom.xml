@@ -129,6 +129,7 @@
                 <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <useModulePath>false</useModulePath>
                     <argLine>@{argLine} --illegal-access=permit</argLine>
                 </configuration>
             </plugin>
@@ -151,6 +152,7 @@
                     </execution>
                     <execution>
                         <id>jacoco-check</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
