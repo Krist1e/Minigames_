@@ -34,10 +34,14 @@ public class Minesweeper extends Application {
     public int AllBombs = 0;
     public int WinReq = 0;
     static Stage classStage = new Stage();
+    private final Label EndText = new Label();
     private final Label BombCounter = new Label();
     private final Rectangle TopFlag = new Rectangle(40, 40);
+    private final Rectangle EndRectangle = new Rectangle();
     private final Button DiffReturn = new Button();
+    private final Button RestartGame = new Button();
     public static Boolean MineSweepDiff2 = false;
+    public Boolean YouWin = false;
     public Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
 
     private Parent generateField() {
@@ -51,6 +55,14 @@ public class Minesweeper extends Application {
             root.setPrefSize(length-600, height-350);
             TopFlag.setTranslateX(length-700);
             BombCounter.setTranslateX(length-742);
+            EndRectangle.setWidth(length-600);
+            EndRectangle.setHeight(height-500);
+            EndRectangle.setTranslateY(75);
+            RestartGame.setTranslateX(150);
+            RestartGame.setTranslateY(290);
+            EndText.setFont(Font.font(80));
+            EndText.setTranslateY(110);
+            EndText.setTranslateX(65);
         }
 
         else if (MinesweeperDifficultyController.MediumDiff) {
@@ -59,13 +71,28 @@ public class Minesweeper extends Application {
             root.setPrefSize(length-300, height-100);
             TopFlag.setTranslateX(length-400);
             BombCounter.setTranslateX(length-442);
+            EndRectangle.setWidth(length-300);
+            EndRectangle.setHeight(height-400);
+            EndRectangle.setTranslateY(150);
+            RestartGame.setTranslateX(300);
+            RestartGame.setTranslateY(540);
+            EndText.setFont(Font.font(120));
+            EndText.setTranslateY(200);
+            EndText.setTranslateX(115);
         }
 
         else {
-
             root.setPrefSize(length, height + 50);
             TopFlag.setTranslateX(length-120);
             BombCounter.setTranslateX(length-162);
+            EndRectangle.setWidth(length);
+            EndRectangle.setHeight(height-300);
+            EndRectangle.setTranslateY(height/4);
+            RestartGame.setTranslateX(length/2-100);
+            RestartGame.setTranslateY(height-15);
+            EndText.setFont(Font.font(160));
+            EndText.setTranslateY(250);
+            EndText.setTranslateX(170);
         }
 
         root.setStyle("-fx-background-color: INDIANRED");
@@ -73,7 +100,7 @@ public class Minesweeper extends Application {
         DiffReturn.setText("Return");
         DiffReturn.setFont(Font.font(20));
         DiffReturn.setTranslateX(5);
-        DiffReturn.setTranslateY(3);
+        DiffReturn.setTranslateY(2.5);
         DiffReturn.setPrefSize(130, 30);
         DiffReturn.setStyle("-fx-background-color: DARKSALMON");
         DiffReturn.setOnMouseClicked(event -> {
@@ -118,10 +145,29 @@ public class Minesweeper extends Application {
         BombCounter.setFont(Font.font(25));
         BombCounter.setTranslateY(5);
 
-        root.getChildren().addAll(TopFlag,BombCounter,DiffReturn);
+        RestartGame.setPrefSize(200, 35);
+        RestartGame.setText("Restart");
+        RestartGame.setFont(Font.font(22));
+        RestartGame.setStyle("-fx-background-color: DARKSALMON");
+        RestartGame.setVisible(false);
+        RestartGame.setDisable(false);
+        RestartGame.setOnMouseClicked(event -> {
+            YouWin = false;
+            AllBombs = 0;
+            WinReq = 0;
+            BombCounter.setVisible(true);
+            TopFlag.setVisible(true);
+            scene.setRoot(generateField());
+        });
 
+        EndRectangle.setFill(Color.SALMON);
+        EndRectangle.setVisible(false);
+        EndText.setVisible(false);
+
+        root.getChildren().addAll(TopFlag, BombCounter, DiffReturn, RestartGame, EndRectangle, EndText);
         return root;
     }
+
 
     private List<Tile> getNeighbors(Tile tile) {
         List<Tile> neighbors = new ArrayList<>();
@@ -212,10 +258,7 @@ public class Minesweeper extends Application {
             }
 
             if (hasBomb) {
-                AllBombs = 0;
-                WinReq = 0;
-                System.out.println("Game Over");
-                scene.setRoot(generateField());
+                EndGame();
                 return;
             }
 
@@ -231,13 +274,33 @@ public class Minesweeper extends Application {
             }
         }
 
+
+
         private void CheckIfWin() {
             if (WinReq == xTiles*yTiles-AllBombs) {
-                AllBombs = 0;
-                WinReq = 0;
-                System.out.println("You're a Winner!");
-                scene.setRoot(generateField());
+                YouWin = true;
+                EndGame();
             }
+        }
+
+        private void EndGame() {
+            for (int y = 0; y < yTiles; y++) {
+                for (int x = 0; x < xTiles; x++) {
+                    Tile tile = grid[x][y];
+                    tile.setVisible(false);
+                    tile.setDisable(true);
+                }
+            }
+            BombCounter.setVisible(false);
+            TopFlag.setVisible(false);
+            RestartGame.setDisable(false);
+            RestartGame.setVisible(true);
+            EndRectangle.setVisible(true);
+            EndText.setVisible(true);
+            if (YouWin)
+                EndText.setText("YOU WIN!");
+            else
+                EndText.setText("YOU LOSE");
         }
     }
 
@@ -249,3 +312,4 @@ public class Minesweeper extends Application {
         stage.show();
     }
 }
+
