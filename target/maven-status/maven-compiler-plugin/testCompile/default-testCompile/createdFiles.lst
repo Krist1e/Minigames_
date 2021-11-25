@@ -1,0 +1,6 @@
+com\minigames\MinesweeperTest.class
+com\minigames\MainMenuControllerTest.class
+com\minigames\MainMenuTest.class
+com\minigames\TicTacToeTest.class
+com\minigames\MinesweeperDifficultyControllerTest.class
+com\minigames\SettingsControllerTest.class

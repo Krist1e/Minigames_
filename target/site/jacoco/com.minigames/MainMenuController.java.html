@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainMenuController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Minigames</a> &gt; <a href="index.source.html" class="el_package">com.minigames</a> &gt; <span class="el_source">MainMenuController.java</span></div><h1>MainMenuController.java</h1><pre class="source lang-java linenums">package com.minigames;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+
+<span class="nc" id="L15">public class MainMenuController {</span>
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button ChooseSettingsButton;
+
+    @FXML
+    private Button MinesweeperStartButton;
+
+    @FXML
+    private Button TicTacToeStartButton;
+
+<span class="nc" id="L32">    public static Boolean Settings = false;</span>
+
+<span class="nc" id="L34">    public static Boolean MineSweepDiff1 = false;</span>
+
+<span class="nc" id="L36">    public static Boolean TicTac = false;</span>
+
+    @FXML
+    public void MinesweeperClick(ActionEvent event) {
+
+<span class="nc" id="L41">    }</span>
+
+    @FXML
+    public void SettingsClick(ActionEvent event) {
+
+<span class="nc" id="L46">    }</span>
+
+    @FXML
+    public void TicTacToeClick(ActionEvent event) {
+
+<span class="nc" id="L51">    }</span>
+
+
+    @FXML
+    public void initialize() {
+<span class="nc" id="L56">        ChooseSettingsButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L57">            ChooseSettingsButton.getScene().getWindow().hide();</span>
+<span class="nc" id="L58">            Settings = true;</span>
+<span class="nc" id="L59">            SceneControl();</span>
+<span class="nc" id="L60">        });</span>
+
+<span class="nc" id="L62">        MinesweeperStartButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L63">            MinesweeperStartButton.getScene().getWindow().hide();</span>
+<span class="nc" id="L64">            MineSweepDiff1 = true;</span>
+<span class="nc" id="L65">            SceneControl();</span>
+<span class="nc" id="L66">        });</span>
+
+
+<span class="nc" id="L69">        TicTacToeStartButton.setOnAction(event -&gt; {</span>
+<span class="nc" id="L70">            TicTacToeStartButton.getScene().getWindow().hide();</span>
+<span class="nc" id="L71">            TicTac = true;</span>
+<span class="nc" id="L72">            SceneControl();</span>
+<span class="nc" id="L73">        });</span>
+<span class="nc" id="L74">    }</span>
+
+    public static void SceneControl() {
+<span class="nc" id="L77">        FXMLLoader fxmlLoader = new FXMLLoader();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (TicTac)</span>
+<span class="nc" id="L79">            fxmlLoader.setLocation(MainMenuController.class.getResource(&quot;TicTacToeLayout.fxml&quot;));</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (MineSweepDiff1)</span>
+<span class="nc" id="L81">            fxmlLoader.setLocation(MainMenuController.class.getResource(&quot;MinesweeperDifficultyLayout.fxml&quot;));</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (Settings)</span>
+<span class="nc" id="L83">            fxmlLoader.setLocation(MainMenuController.class.getResource(&quot;SettingsLayout.fxml&quot;));</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        if (Minesweeper.MineSweepDiff2)</span>
+<span class="nc" id="L85">            fxmlLoader.setLocation(Minesweeper.class.getResource(&quot;MinesweeperDifficultyLayout.fxml&quot;));</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (MinesweeperDifficultyController.Menu)</span>
+<span class="nc" id="L87">            fxmlLoader.setLocation(MinesweeperDifficultyController.class.getResource(&quot;SceneLayout.fxml&quot;));</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (TicTacToe.TicMenu)</span>
+<span class="nc" id="L89">            fxmlLoader.setLocation(TicTacToe.class.getResource(&quot;SceneLayout.fxml&quot;));</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (SettingsController.SettingMenu)</span>
+<span class="nc" id="L91">            fxmlLoader.setLocation(SettingsController.class.getResource(&quot;SceneLayout.fxml&quot;));</span>
+
+        try {
+<span class="nc" id="L94">            fxmlLoader.load();</span>
+<span class="nc" id="L95">        } catch (IOException e) {</span>
+<span class="nc" id="L96">            e.printStackTrace();</span>
+<span class="nc" id="L97">        }</span>
+<span class="nc" id="L98">        Parent root = fxmlLoader.getRoot();</span>
+<span class="nc" id="L99">        Stage stage = new Stage();</span>
+<span class="nc" id="L100">        stage.setResizable(false);</span>
+<span class="nc" id="L101">        stage.setScene(new Scene(root));</span>
+<span class="nc" id="L102">        stage.show();</span>
+
+<span class="nc" id="L104">        TicTac = false;</span>
+<span class="nc" id="L105">        MineSweepDiff1 = false;</span>
+<span class="nc" id="L106">        Settings = false;</span>
+<span class="nc" id="L107">        Minesweeper.MineSweepDiff2 = false;</span>
+<span class="nc" id="L108">        MinesweeperDifficultyController.Menu = false;</span>
+<span class="nc" id="L109">        TicTacToe.TicMenu = false;</span>
+<span class="nc" id="L110">        SettingsController.SettingMenu = false;</span>
+<span class="nc" id="L111">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

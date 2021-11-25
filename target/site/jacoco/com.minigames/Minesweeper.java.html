@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Minesweeper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Minigames</a> &gt; <a href="index.source.html" class="el_package">com.minigames</a> &gt; <span class="el_source">Minesweeper.java</span></div><h1>Minesweeper.java</h1><pre class="source lang-java linenums">package com.minigames;
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+<span class="nc" id="L22">public class Minesweeper extends Application {</span>
+
+    private static final double tileSize = 50;
+<span class="nc" id="L25">    private static  double length = 1100;</span>
+<span class="nc" id="L26">    private static  double height = 700;</span>
+
+<span class="nc" id="L28">    private static double xTiles = length / tileSize;</span>
+<span class="nc" id="L29">    private static double yTiles = height / tileSize;</span>
+
+<span class="nc" id="L31">    private  Tile[][] grid = new Tile[(int) xTiles][(int) yTiles];</span>
+    private Scene scene;
+<span class="nc" id="L33">    public int FlagCounter = 0;</span>
+<span class="nc" id="L34">    public int AllBombs = 0;</span>
+<span class="nc" id="L35">    public int WinReq = 0;</span>
+<span class="nc" id="L36">    static Stage classStage = new Stage();</span>
+<span class="nc" id="L37">    private final Label EndText = new Label();</span>
+<span class="nc" id="L38">    private final Label BombCounter = new Label();</span>
+<span class="nc" id="L39">    private final Rectangle TopFlag = new Rectangle(40, 40);</span>
+<span class="nc" id="L40">    private final Rectangle EndRectangle = new Rectangle();</span>
+<span class="nc" id="L41">    private final Button DiffReturn = new Button();</span>
+<span class="nc" id="L42">    private final Button RestartGame = new Button();</span>
+<span class="nc" id="L43">    public static Boolean MineSweepDiff2 = false;</span>
+<span class="nc" id="L44">    public Boolean YouWin = false;</span>
+<span class="nc" id="L45">    public Image flag = new Image(getClass().getResource(&quot;flag.jpg&quot;).toExternalForm());</span>
+
+    private Parent generateField() {
+<span class="nc" id="L48">        Pane root = new Pane();</span>
+
+
+
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (MinesweeperDifficultyController.EasyDiff) {</span>
+<span class="nc" id="L53">            xTiles = (length-600)/tileSize;</span>
+<span class="nc" id="L54">            yTiles = (height-400)/tileSize;</span>
+<span class="nc" id="L55">            root.setPrefSize(length-600, height-350);</span>
+<span class="nc" id="L56">            TopFlag.setTranslateX(length-700);</span>
+<span class="nc" id="L57">            BombCounter.setTranslateX(length-742);</span>
+<span class="nc" id="L58">            EndRectangle.setWidth(length-600);</span>
+<span class="nc" id="L59">            EndRectangle.setHeight(height-500);</span>
+<span class="nc" id="L60">            EndRectangle.setTranslateY(75);</span>
+<span class="nc" id="L61">            RestartGame.setTranslateX(150);</span>
+<span class="nc" id="L62">            RestartGame.setTranslateY(290);</span>
+<span class="nc" id="L63">            EndText.setFont(Font.font(80));</span>
+<span class="nc" id="L64">            EndText.setTranslateY(110);</span>
+<span class="nc" id="L65">            EndText.setTranslateX(65);</span>
+        }
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        else if (MinesweeperDifficultyController.MediumDiff) {</span>
+<span class="nc" id="L69">            xTiles = (length-300)/tileSize;</span>
+<span class="nc" id="L70">            yTiles = (height-150)/tileSize;</span>
+<span class="nc" id="L71">            root.setPrefSize(length-300, height-100);</span>
+<span class="nc" id="L72">            EndRectangle.setWidth(length-300);</span>
+<span class="nc" id="L73">            EndRectangle.setHeight(height-400);</span>
+<span class="nc" id="L74">            EndRectangle.setTranslateY((height-100)/4);</span>
+<span class="nc" id="L75">            TopFlag.setTranslateX(length-400);</span>
+<span class="nc" id="L76">            EndText.setFont(Font.font(120));</span>
+<span class="nc" id="L77">            RestartGame.setTranslateX((length-200)/3);</span>
+<span class="nc" id="L78">            RestartGame.setTranslateY(height-160);</span>
+<span class="nc" id="L79">            EndText.setTranslateY(200);</span>
+<span class="nc" id="L80">            EndText.setTranslateX(115);</span>
+<span class="nc" id="L81">            BombCounter.setTranslateX(length-442);</span>
+        }
+
+        else {
+<span class="nc" id="L85">            root.setPrefSize(length, height + 50);</span>
+<span class="nc" id="L86">            TopFlag.setTranslateX(length-120);</span>
+<span class="nc" id="L87">            BombCounter.setTranslateX(length-162);</span>
+<span class="nc" id="L88">            EndRectangle.setWidth(length);</span>
+<span class="nc" id="L89">            EndRectangle.setHeight(height-300);</span>
+<span class="nc" id="L90">            EndRectangle.setTranslateY(height/4);</span>
+<span class="nc" id="L91">            RestartGame.setTranslateX(length/2-100);</span>
+<span class="nc" id="L92">            RestartGame.setTranslateY(height-15);</span>
+<span class="nc" id="L93">            EndText.setFont(Font.font(160));</span>
+<span class="nc" id="L94">            EndText.setTranslateY(250);</span>
+<span class="nc" id="L95">            EndText.setTranslateX(170);</span>
+        }
+
+<span class="nc" id="L98">        root.setStyle(&quot;-fx-background-color: INDIANRED&quot;);</span>
+
+<span class="nc" id="L100">        DiffReturn.setText(&quot;Return&quot;);</span>
+<span class="nc" id="L101">        DiffReturn.setFont(Font.font(20));</span>
+<span class="nc" id="L102">        DiffReturn.setTranslateX(2);</span>
+<span class="nc" id="L103">        DiffReturn.setTranslateY(2.5);</span>
+<span class="nc" id="L104">        DiffReturn.setPrefSize(130, 30);</span>
+<span class="nc" id="L105">        DiffReturn.setStyle(&quot;-fx-background-color: DARKSALMON&quot;);</span>
+<span class="nc" id="L106">        DiffReturn.setOnMouseClicked(event -&gt; {</span>
+<span class="nc" id="L107">            DiffReturn.getScene().getWindow().hide();</span>
+<span class="nc" id="L108">            MineSweepDiff2 = true;</span>
+<span class="nc" id="L109">            MinesweeperDifficultyController.EasyDiff = false;</span>
+<span class="nc" id="L110">            MinesweeperDifficultyController.MediumDiff = false;</span>
+<span class="nc" id="L111">            xTiles = length / tileSize;</span>
+<span class="nc" id="L112">            yTiles = height / tileSize;</span>
+<span class="nc" id="L113">            MainMenuController.SceneControl();</span>
+
+<span class="nc" id="L115">        });</span>
+
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        for (int y = 0; y &lt; yTiles; y++) {</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            for (int x = 0; x &lt; xTiles; x++) {</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">                Tile tile = new Tile(x, y, Math.random() &lt; 0.2 );</span>
+
+<span class="nc" id="L121">                grid[x][y] = tile;</span>
+<span class="nc" id="L122">                root.getChildren().add(tile);</span>
+            }
+        }
+
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        for (int y = 0; y &lt; yTiles; y++) {</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">            for (int x = 0; x &lt; xTiles; x++) {</span>
+<span class="nc" id="L128">                Tile tile = grid[x][y];</span>
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">                if (tile.hasBomb) {</span>
+<span class="nc" id="L131">                    AllBombs++;</span>
+<span class="nc" id="L132">                    continue;</span>
+                }
+
+<span class="nc" id="L135">                long bombs = getNeighbors(tile).stream().filter(t -&gt; t.hasBomb).count();</span>
+
+<span class="nc bnc" id="L137" title="All 2 branches missed.">                if (bombs &gt; 0)</span>
+<span class="nc" id="L138">                    tile.text.setText(String.valueOf(bombs));</span>
+            }
+        }
+<span class="nc" id="L141">        TopFlag.setFill(new ImagePattern(flag));</span>
+<span class="nc" id="L142">        TopFlag.setTranslateY(5);</span>
+
+<span class="nc" id="L144">        BombCounter.setText(String.valueOf(AllBombs));</span>
+<span class="nc" id="L145">        BombCounter.setFont(Font.font(25));</span>
+<span class="nc" id="L146">        BombCounter.setTranslateY(5);</span>
+
+<span class="nc" id="L148">        RestartGame.setPrefSize(200, 35);</span>
+<span class="nc" id="L149">        RestartGame.setText(&quot;Restart&quot;);</span>
+<span class="nc" id="L150">        RestartGame.setFont(Font.font(22));</span>
+<span class="nc" id="L151">        RestartGame.setStyle(&quot;-fx-background-color: DARKSALMON&quot;);</span>
+<span class="nc" id="L152">        RestartGame.setVisible(false);</span>
+<span class="nc" id="L153">        RestartGame.setDisable(false);</span>
+<span class="nc" id="L154">        RestartGame.setOnMouseClicked(event -&gt; {</span>
+<span class="nc" id="L155">            YouWin = false;</span>
+<span class="nc" id="L156">            AllBombs = 0;</span>
+<span class="nc" id="L157">            WinReq = 0;</span>
+<span class="nc" id="L158">            BombCounter.setVisible(true);</span>
+<span class="nc" id="L159">            TopFlag.setVisible(true);</span>
+<span class="nc" id="L160">            scene.setRoot(generateField());</span>
+<span class="nc" id="L161">        });</span>
+
+<span class="nc" id="L163">        EndRectangle.setFill(Color.SALMON);</span>
+<span class="nc" id="L164">        EndRectangle.setVisible(false);</span>
+<span class="nc" id="L165">        EndText.setVisible(false);</span>
+
+<span class="nc" id="L167">        root.getChildren().addAll(TopFlag, BombCounter, DiffReturn, RestartGame, EndRectangle, EndText);</span>
+<span class="nc" id="L168">        return root;</span>
+    }
+
+
+    private List&lt;Tile&gt; getNeighbors(Tile tile) {
+<span class="nc" id="L173">        List&lt;Tile&gt; neighbors = new ArrayList&lt;&gt;();</span>
+
+        // ttt
+        // tXt
+        // ttt
+
+<span class="nc" id="L179">        int[] points = new int[] {</span>
+                -1, -1,
+                -1, 0,
+                -1, 1,
+                0, -1,
+                0, 1,
+                1, -1,
+                1, 0,
+                1, 1
+        };
+
+<span class="nc bnc" id="L190" title="All 2 branches missed.">        for (int i = 0; i &lt; points.length; i++) {</span>
+<span class="nc" id="L191">            int dx = points[i];</span>
+<span class="nc" id="L192">            int dy = points[++i];</span>
+
+<span class="nc" id="L194">            int newX = tile.x + dx;</span>
+<span class="nc" id="L195">            int newY = tile.y + dy;</span>
+
+<span class="nc bnc" id="L197" title="All 8 branches missed.">            if (newX &gt;= 0 &amp;&amp; newX &lt; xTiles</span>
+                    &amp;&amp; newY &gt;= 0 &amp;&amp; newY &lt; yTiles) {
+<span class="nc" id="L199">                neighbors.add(grid[newX][newY]);</span>
+            }
+        }
+
+<span class="nc" id="L203">        return neighbors;</span>
+    }
+
+    private class Tile extends StackPane {
+        private int x, y;
+        private boolean hasBomb;
+<span class="nc" id="L209">        private boolean isOpen = false;</span>
+
+
+<span class="nc" id="L212">        private Rectangle border = new Rectangle(tileSize - 2, tileSize - 2);</span>
+<span class="nc" id="L213">        private Text text = new Text();</span>
+
+<span class="nc" id="L215">        public Tile(int x, int y, boolean hasBomb) {</span>
+<span class="nc" id="L216">            this.x = x;</span>
+<span class="nc" id="L217">            this.y = y;</span>
+<span class="nc" id="L218">            this.hasBomb = hasBomb;</span>
+<span class="nc" id="L219">            Minesweeper f = new Minesweeper();</span>
+
+<span class="nc" id="L221">            border.setStroke(Color.BLACK);</span>
+<span class="nc" id="L222">            border.setFill(Color.LIGHTGRAY);</span>
+
+
+<span class="nc" id="L225">            text.setFont(Font.font(18));</span>
+<span class="nc bnc" id="L226" title="All 2 branches missed.">            text.setText(hasBomb ? &quot;X&quot; : &quot;&quot;);</span>
+<span class="nc" id="L227">            text.setVisible(false);</span>
+
+<span class="nc" id="L229">            getChildren().addAll(border, text);</span>
+
+<span class="nc" id="L231">            setTranslateX(x * tileSize);</span>
+<span class="nc" id="L232">            setTranslateY(y * tileSize + 50);</span>
+
+<span class="nc" id="L234">            setOnMouseClicked(e -&gt; {</span>
+<span class="nc bnc" id="L235" title="All 2 branches missed.">                if(e.getButton() == MouseButton.SECONDARY){</span>
+<span class="nc" id="L236">                    Paint Flag =border.getFill();</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">                    if (Flag == Color.LIGHTGRAY) {</span>
+<span class="nc" id="L238">                        border.setFill(new ImagePattern(f.flag));</span>
+<span class="nc" id="L239">                        FlagCounter++;</span>
+<span class="nc" id="L240">                        BombCounter.setText(String.valueOf(AllBombs-FlagCounter));</span>
+                    }
+
+<span class="nc bnc" id="L243" title="All 2 branches missed.">                    else if (Flag != Color.DARKSALMON) {</span>
+<span class="nc" id="L244">                        border.setFill(Color.LIGHTGRAY);</span>
+<span class="nc" id="L245">                        FlagCounter--;</span>
+<span class="nc" id="L246">                        BombCounter.setText(String.valueOf(AllBombs-FlagCounter));</span>
+                    }
+
+<span class="nc" id="L249">                }</span>
+                else
+<span class="nc" id="L251">                    open();</span>
+<span class="nc" id="L252">            });</span>
+<span class="nc" id="L253">        }</span>
+
+        public void open() {
+<span class="nc bnc" id="L256" title="All 2 branches missed.">            if (isOpen) {</span>
+<span class="nc" id="L257">                return;</span>
+            }
+
+<span class="nc bnc" id="L260" title="All 2 branches missed.">            if (hasBomb) {</span>
+<span class="nc" id="L261">                EndGame();</span>
+<span class="nc" id="L262">                return;</span>
+            }
+
+
+<span class="nc" id="L266">            isOpen = true;</span>
+<span class="nc" id="L267">            text.setVisible(true);</span>
+<span class="nc" id="L268">            border.setFill(Color.DARKSALMON);</span>
+<span class="nc" id="L269">            WinReq++;</span>
+<span class="nc" id="L270">            CheckIfWin();</span>
+
+<span class="nc bnc" id="L272" title="All 2 branches missed.">            if (text.getText().isEmpty()) {</span>
+<span class="nc" id="L273">                getNeighbors(this).forEach(Tile::open);</span>
+            }
+<span class="nc" id="L275">        }</span>
+
+
+
+        private void CheckIfWin() {
+<span class="nc bnc" id="L280" title="All 2 branches missed.">            if (WinReq == xTiles*yTiles-AllBombs) {</span>
+<span class="nc" id="L281">                YouWin = true;</span>
+<span class="nc" id="L282">                EndGame();</span>
+            }
+<span class="nc" id="L284">        }</span>
+
+        private void EndGame() {
+<span class="nc bnc" id="L287" title="All 2 branches missed.">            for (int y = 0; y &lt; yTiles; y++) {</span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">                for (int x = 0; x &lt; xTiles; x++) {</span>
+<span class="nc" id="L289">                    Tile tile = grid[x][y];</span>
+<span class="nc" id="L290">                    tile.setVisible(false);</span>
+<span class="nc" id="L291">                    tile.setDisable(true);</span>
+                }
+            }
+<span class="nc" id="L294">            BombCounter.setVisible(false);</span>
+<span class="nc" id="L295">            TopFlag.setVisible(false);</span>
+<span class="nc" id="L296">            RestartGame.setDisable(false);</span>
+<span class="nc" id="L297">            RestartGame.setVisible(true);</span>
+<span class="nc" id="L298">            EndRectangle.setVisible(true);</span>
+<span class="nc" id="L299">            EndText.setVisible(true);</span>
+<span class="nc bnc" id="L300" title="All 2 branches missed.">            if (YouWin)</span>
+<span class="nc" id="L301">                EndText.setText(&quot;YOU WIN!&quot;);</span>
+            else
+<span class="nc" id="L303">                EndText.setText(&quot;YOU LOSE&quot;);</span>
+<span class="nc" id="L304">        }</span>
+    }
+
+    @Override
+    public void start(Stage stage) {
+<span class="nc" id="L309">        classStage = stage;</span>
+<span class="nc" id="L310">        scene = new Scene(generateField());</span>
+<span class="nc" id="L311">        stage.setScene(scene);</span>
+<span class="nc" id="L312">        stage.show();</span>
+<span class="nc" id="L313">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
