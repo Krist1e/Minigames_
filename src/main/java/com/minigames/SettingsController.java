@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -48,7 +47,7 @@ public class SettingsController {
         });
 
         SoundButton.setOnAction(event -> {
-            String musicFile = "soundtrack1.mp3";
+            String musicFile = "com/minigames/soundtrack1.mp3";
             Media sound = new Media(new File(musicFile).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(sound);
             if (!OnOffSound) {

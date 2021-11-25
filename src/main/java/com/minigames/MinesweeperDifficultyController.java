@@ -56,24 +56,18 @@ public class MinesweeperDifficultyController {
     @FXML
     public void initialize() {
         MinesweeperEasy.setOnAction(event -> {
-            MediumDiff = false;
             EasyDiff = true;
             MinesweeperEasy.getScene().getWindow().hide();
             MineApp();
 
-
-
         });
         MinesweeperMedium.setOnAction(event -> {
-            EasyDiff = false;
             MediumDiff = true;
             MinesweeperMedium.getScene().getWindow().hide();
             MineApp();
 
         });
         MinesweeperHard.setOnAction(event -> {
-            EasyDiff = false;
-            MediumDiff = false;
             MinesweeperHard.getScene().getWindow().hide();
             MineApp();
         });

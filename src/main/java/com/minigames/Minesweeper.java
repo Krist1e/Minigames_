@@ -22,13 +22,13 @@ import javafx.stage.Stage;
 public class Minesweeper extends Application {
 
     private static final double tileSize = 50;
-    private static final double length = 1100;
-    private static final double height = 700;
+    private static  double length = 1100;
+    private static  double height = 700;
 
     private static double xTiles = length / tileSize;
     private static double yTiles = height / tileSize;
 
-    private final Tile[][] grid = new Tile[(int) xTiles][(int)yTiles];
+    private  Tile[][] grid = new Tile[(int) xTiles][(int) yTiles];
     private Scene scene;
     public int FlagCounter = 0;
     public int AllBombs = 0;
@@ -43,23 +43,26 @@ public class Minesweeper extends Application {
     private Parent generateField() {
         Pane root = new Pane();
 
+
+
         if (MinesweeperDifficultyController.EasyDiff) {
-            root.setPrefSize(length-600, height-350);
             xTiles = (length-600)/tileSize;
             yTiles = (height-400)/tileSize;
+            root.setPrefSize(length-600, height-350);
             TopFlag.setTranslateX(length-700);
             BombCounter.setTranslateX(length-742);
         }
 
         else if (MinesweeperDifficultyController.MediumDiff) {
-            root.setPrefSize(length-300, height-100);
             xTiles = (length-300)/tileSize;
             yTiles = (height-150)/tileSize;
+            root.setPrefSize(length-300, height-100);
             TopFlag.setTranslateX(length-400);
             BombCounter.setTranslateX(length-442);
         }
 
         else {
+
             root.setPrefSize(length, height + 50);
             TopFlag.setTranslateX(length-120);
             BombCounter.setTranslateX(length-162);
@@ -76,6 +79,10 @@ public class Minesweeper extends Application {
         DiffReturn.setOnMouseClicked(event -> {
             DiffReturn.getScene().getWindow().hide();
             MineSweepDiff2 = true;
+            MinesweeperDifficultyController.EasyDiff = false;
+            MinesweeperDifficultyController.MediumDiff = false;
+            xTiles = length / tileSize;
+            yTiles = height / tileSize;
             MainMenuController.SceneControl();
 
         });
@@ -151,7 +158,7 @@ public class Minesweeper extends Application {
     }
 
     private class Tile extends StackPane {
-        private final int x, y;
+        private int x, y;
         private boolean hasBomb;
         private boolean isOpen = false;
 

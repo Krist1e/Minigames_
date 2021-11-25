@@ -14,6 +14,6 @@ module com.minigames {
     requires org.junit.jupiter.api;
     requires junit;
 
-    opens com.minigames to javafx.fxml, javafx.graphics;
+    opens com.minigames to javafx.base, javafx.fxml, javafx.graphics;
     exports com.minigames;
 }

@@ -15,7 +15,7 @@ public class SettingsController1 extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainMenu.class.getResource("SettingsLayout.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1100, 700);
-        String musicFile = "soundtrack1.mp3";
+        String musicFile = "com/minigames/soundtrack1.mp3";
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
