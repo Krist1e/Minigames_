@@ -21,6 +21,7 @@ public class MainMenu extends Application {
 
 
     public void stop(){
+
         System.out.println("Thank you for playing! Have a great day! ");
     }
 }

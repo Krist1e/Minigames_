@@ -58,6 +58,9 @@ public class TicTacToe implements Initializable {
 
     ArrayList<Button> buttons;
 
+    ImageView X = new ImageView(getClass().getResource("xicon.png").toExternalForm());
+    ImageView O = new ImageView(getClass().getResource("oicon.png").toExternalForm());
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
@@ -85,10 +88,10 @@ public class TicTacToe implements Initializable {
 
     public void resetButton(Button button){
         button.setDisable(false);
-        button.setText("");
+        button.setGraphic(null);
     }
 
-    private void setupButton(Button button) {
+    public void setupButton(Button button) {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
             button.setDisable(true);
@@ -99,42 +102,41 @@ public class TicTacToe implements Initializable {
 
     public void setPlayerSymbol(Button button){
         if(playerTurn % 2 == 0) {
-            button.setText("X");
+            button.setGraphic(X);
             playerTurn = 1;
-        } else{
-            button.setText("O");
+        } else {
+            button.setGraphic(O);
             playerTurn = 0;
         }
     }
 
     public void checkIfGameIsOver() {
-
         for (int a = 0; a < 8; a++) {
             String line;
             switch (a) {
                 case 0:
-                    line = button1.getText() + button2.getText() + button3.getText();
+                    line = new StringBuilder().append(button1.getGraphic()).append(button2.getGraphic()).append(button3.getGraphic()).toString();
                     break;
                 case 1:
-                    line = button4.getText() + button5.getText() + button6.getText();
+                    line = new StringBuilder().append(button4.getGraphic()).append(button5.getGraphic()).append(button6.getGraphic()).toString();
                     break;
                 case 2:
-                    line = button7.getText() + button8.getText() + button9.getText();
+                    line = new StringBuilder().append(button7.getGraphic()).append(button8.getGraphic()).append(button9.getGraphic()).toString();
                     break;
                 case 3:
-                    line = button1.getText() + button5.getText() + button9.getText();
+                    line = new StringBuilder().append(button1.getGraphic()).append(button5.getGraphic()).append(button9.getGraphic()).toString();
                     break;
                 case 4:
-                    line = button3.getText() + button5.getText() + button7.getText();
+                    line = new StringBuilder().append(button3.getGraphic()).append(button5.getGraphic()).append(button7.getGraphic()).toString();
                     break;
                 case 5:
-                    line = button1.getText() + button4.getText() + button7.getText();
+                    line = new StringBuilder().append(button1.getGraphic()).append(button4.getGraphic()).append(button7.getGraphic()).toString();
                     break;
                 case 6:
-                    line = button2.getText() + button5.getText() + button8.getText();
+                    line = new StringBuilder().append(button2.getGraphic()).append(button5.getGraphic()).append(button8.getGraphic()).toString();
                     break;
                 case 7:
-                    line = button3.getText() + button6.getText() + button9.getText();
+                    line = new StringBuilder().append(button3.getGraphic()).append(button6.getGraphic()).append(button9.getGraphic()).toString();
                     break;
                 default:
                     line = null;
@@ -142,18 +144,18 @@ public class TicTacToe implements Initializable {
             }
 
             //First player is a winner
-            if (line.equals("XXX")) {
+            if (line.equals(new StringBuilder().append(X).append(X).append(X).toString())) {
                 winnerText.setText("Player 1 won!");
             }
 
             //Second player is a winner
-            else if (line.equals("OOO")) {
+            else if (line.equals(new StringBuilder().append(O).append(O).append(O).toString())) {
                 winnerText.setText("Player 2 won!");
 
             }
 
             //Draw condition
-            if (!line.equals("XXX") && !line.equals("OOO") && (Turn==9)) {
+            if (!line.equals(new StringBuilder().append(O).append(O).append(O).toString()) && !line.equals(new StringBuilder().append(X).append(X).append(X).toString()) && (Turn==9)) {
                      winnerText.setText("Draw!");
 
             }
