@@ -1,3 +1,5 @@
+package Tests;
+
 import com.minigames.Minesweeper;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;

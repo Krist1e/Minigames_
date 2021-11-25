@@ -1,3 +1,5 @@
+package Tests;
+
 import com.minigames.MainMenuController;
 import javafx.event.ActionEvent;
 import org.junit.Before;

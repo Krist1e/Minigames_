@@ -1,3 +1,5 @@
+package Tests;
+
 import com.minigames.MinesweeperDifficultyController;
 import javafx.event.ActionEvent;
 import org.junit.Before;

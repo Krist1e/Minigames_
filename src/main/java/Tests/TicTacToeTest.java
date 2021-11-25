@@ -1,3 +1,5 @@
+package Tests;
+
 import com.minigames.TicTacToe;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
