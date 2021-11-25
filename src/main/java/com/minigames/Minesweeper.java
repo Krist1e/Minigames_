@@ -99,7 +99,7 @@ public class Minesweeper extends Application {
 
         DiffReturn.setText("Return");
         DiffReturn.setFont(Font.font(20));
-        DiffReturn.setTranslateX(5);
+        DiffReturn.setTranslateX(2);
         DiffReturn.setTranslateY(2.5);
         DiffReturn.setPrefSize(130, 30);
         DiffReturn.setStyle("-fx-background-color: DARKSALMON");
