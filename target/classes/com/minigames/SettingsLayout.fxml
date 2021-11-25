@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@SettingsBackground.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.SettingsController">
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@SettingsBackground.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.SettingsController">
     <children>
         <Button fx:id="SoundButton" layoutX="393.0" layoutY="269.0" mnemonicParsing="false" onAction="#SoundClick" onMouseClicked="#SoundClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="On/Off Sound" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
             <font>

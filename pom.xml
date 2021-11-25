@@ -11,30 +11,31 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.8.1</junit.version>
+        <junit.version>5.7.1</junit.version>
         <sonar.organization>krist1e</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>17.0.0.1</version>
+            <version>11.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>17.0.0.1</version>
+            <version>11.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>17.0.0.1</version>
+            <version>11.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
@@ -76,7 +77,7 @@
         <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>
-            <version>17.0.4</version>
+            <version>11.48</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -98,7 +99,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>17.0.0.1</version>
+            <version>11.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
@@ -127,8 +128,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
                 <version>3.0.0-M5</version>
+                <configuration>
+                    <argLine>@{argLine} --illegal-access=permit</argLine>
+                </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -169,10 +172,11 @@
                 </executions>
 
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>11</source>
                     <target>11</target>
