@@ -13,6 +13,7 @@ module com.minigames {
     requires javafx.media;
     requires org.junit.jupiter.api;
     requires junit;
+    requires mockito.all;
 
     opens com.minigames to javafx.base, javafx.fxml, javafx.graphics;
     exports com.minigames;
