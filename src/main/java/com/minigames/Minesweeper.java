@@ -69,16 +69,16 @@ public class Minesweeper extends Application {
             xTiles = (length-300)/tileSize;
             yTiles = (height-150)/tileSize;
             root.setPrefSize(length-300, height-100);
-            TopFlag.setTranslateX(length-400);
-            BombCounter.setTranslateX(length-442);
             EndRectangle.setWidth(length-300);
             EndRectangle.setHeight(height-400);
-            EndRectangle.setTranslateY(150);
-            RestartGame.setTranslateX(300);
-            RestartGame.setTranslateY(540);
+            EndRectangle.setTranslateY((height-100)/4);
+            TopFlag.setTranslateX(length-400);
             EndText.setFont(Font.font(120));
+            RestartGame.setTranslateX((length-200)/3);
+            RestartGame.setTranslateY(height-160);
             EndText.setTranslateY(200);
             EndText.setTranslateX(115);
+            BombCounter.setTranslateX(length-442);
         }
 
         else {
