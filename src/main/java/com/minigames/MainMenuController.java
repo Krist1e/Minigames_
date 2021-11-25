@@ -36,17 +36,17 @@ public class MainMenuController {
     public static Boolean TicTac = false;
 
     @FXML
-    void MinesweeperClick(ActionEvent event) {
+    public void MinesweeperClick(ActionEvent event) {
 
     }
 
     @FXML
-    void SettingsClick(ActionEvent event) {
+    public void SettingsClick(ActionEvent event) {
 
     }
 
     @FXML
-    void TicTacToeClick(ActionEvent event) {
+    public void TicTacToeClick(ActionEvent event) {
 
     }
 

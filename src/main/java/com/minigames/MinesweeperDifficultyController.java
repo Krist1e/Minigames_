@@ -34,22 +34,22 @@ public class MinesweeperDifficultyController {
     public static Boolean Menu = false;
 
     @FXML
-    void MinesweeperChooseEasy(ActionEvent event) {
+    public void MinesweeperChooseEasy(ActionEvent event) {
 
     }
 
     @FXML
-    void MinesweeperChooseHard(ActionEvent event) {
+    public void MinesweeperChooseHard(ActionEvent event) {
 
     }
 
     @FXML
-    void MinesweeperChooseMedium(ActionEvent event) {
+    public void MinesweeperChooseMedium(ActionEvent event) {
 
     }
 
     @FXML
-    void MinesweeperReturnToMenu(ActionEvent event) {
+    public void MinesweeperReturnToMenu(ActionEvent event) {
 
     }
 

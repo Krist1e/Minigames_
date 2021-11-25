@@ -1,5 +1,4 @@
-package com.minigames;
-
+import com.minigames.MainMenu;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.junit.Before;

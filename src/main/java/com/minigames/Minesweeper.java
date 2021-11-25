@@ -38,7 +38,7 @@ public class Minesweeper extends Application {
     private final Rectangle TopFlag = new Rectangle(40, 40);
     private final Button DiffReturn = new Button();
     public static Boolean MineSweepDiff2 = false;
-    Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
+    public Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
 
     private Parent generateField() {
         Pane root = new Pane();

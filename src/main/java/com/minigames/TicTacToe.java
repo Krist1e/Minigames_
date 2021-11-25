@@ -56,10 +56,10 @@ public class TicTacToe implements Initializable {
 
     private int Turn = 0;
 
-    ArrayList<Button> buttons;
+    public ArrayList<Button> buttons;
 
-    ImageView X = new ImageView(getClass().getResource("xicon.png").toExternalForm());
-    ImageView O = new ImageView(getClass().getResource("oicon.png").toExternalForm());
+    public ImageView X = new ImageView(getClass().getResource("xicon.png").toExternalForm());
+    public ImageView O = new ImageView(getClass().getResource("oicon.png").toExternalForm());
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -72,7 +72,7 @@ public class TicTacToe implements Initializable {
     }
 
     @FXML
-    void restartGame(ActionEvent event) {
+    public void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
         winnerText.setText("Tic-Tac-Toe");
         playerTurn = 0;
@@ -80,7 +80,7 @@ public class TicTacToe implements Initializable {
     }
 
     @FXML
-    void ReturnToMenu(ActionEvent event) {
+    public void ReturnToMenu(ActionEvent event) {
         button1.getScene().getWindow().hide();
         TicMenu = true;
         MainMenuController.SceneControl();

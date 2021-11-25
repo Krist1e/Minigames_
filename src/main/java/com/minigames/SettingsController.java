@@ -25,12 +25,12 @@ public class SettingsController {
     private Button SoundButton;
 
     @FXML
-    void ReturnClick(ActionEvent event) {
+    public void ReturnClick(ActionEvent event) {
 
     }
 
     @FXML
-    void SoundClick(ActionEvent event) {
+    public void SoundClick(ActionEvent event) {
 
     }
 
