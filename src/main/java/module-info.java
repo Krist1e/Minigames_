@@ -15,6 +15,7 @@ module com.minigames {
     requires junit;
     requires mockito.all;
 
+
     opens com.minigames to javafx.base, javafx.fxml, javafx.graphics;
     exports com.minigames;
     exports Tests;
