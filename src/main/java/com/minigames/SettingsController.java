@@ -50,6 +50,7 @@ public class SettingsController {
             Music = new AudioClip(new File("src/main/resources/com/minigames/soundtrack1.mp3").toURI().toString());
             if (!OnOffSound) {
                 Music.play();
+                Music.setCycleCount(100);
                 OnOffSound = true;
             }
             else {

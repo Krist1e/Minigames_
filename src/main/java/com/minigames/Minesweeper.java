@@ -22,13 +22,13 @@ import javafx.stage.Stage;
 public class Minesweeper extends Application {
 
     private static final double tileSize = 50;
-    private static  double length = 1100;
-    private static  double height = 700;
+    private static final double length = 1100;
+    private static final double height = 700;
 
     private static double xTiles = length / tileSize;
     private static double yTiles = height / tileSize;
 
-    private  Tile[][] grid = new Tile[(int) xTiles][(int) yTiles];
+    private final Tile[][] grid = new Tile[(int) xTiles][(int) yTiles];
     private Scene scene;
     public int FlagCounter = 0;
     public int AllBombs = 0;
@@ -42,13 +42,10 @@ public class Minesweeper extends Application {
     private final Button RestartGame = new Button();
     public static Boolean MineSweepDiff2 = false;
     public Boolean YouWin = false;
-    public Image flag = new Image(getClass().getResource("flag.jpg").toExternalForm());
+    public Image flag = new Image(String.valueOf(getClass().getResource("flag.jpg")));
 
     private Parent generateField() {
         Pane root = new Pane();
-
-
-
         if (MinesweeperDifficultyController.EasyDiff) {
             xTiles = (length-600)/tileSize;
             yTiles = (height-400)/tileSize;
