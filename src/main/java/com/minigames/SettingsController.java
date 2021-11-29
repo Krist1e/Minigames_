@@ -1,16 +1,12 @@
 package com.minigames;
 
 import java.io.File;
-import java.nio.file.Paths;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 
 public class SettingsController {
@@ -56,7 +52,7 @@ public class SettingsController {
                 Music.play();
                 OnOffSound = true;
             }
-            else if (OnOffSound) {
+            else {
                 Music.stop();
                 OnOffSound = false;
             }
