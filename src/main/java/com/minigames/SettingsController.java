@@ -1,11 +1,14 @@
 package com.minigames;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -47,14 +50,16 @@ public class SettingsController {
         });
 
         SoundButton.setOnAction(event -> {
-            String musicFile = "com/minigames/soundtrack1.mp3";
-            Media sound = new Media(new File(musicFile).toURI().toString());
-            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+            AudioClip Music;
+            Music = new AudioClip(new File("src/main/resources/com/minigames/soundtrack1.mp3").toURI().toString());
             if (!OnOffSound) {
-                mediaPlayer.play();
+                Music.play();
+                OnOffSound = true;
             }
-            else
-                mediaPlayer.stop();
+            else if (OnOffSound) {
+                Music.stop();
+                OnOffSound = false;
+            }
 
         });
     }
