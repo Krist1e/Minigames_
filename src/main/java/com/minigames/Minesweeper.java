@@ -123,7 +123,7 @@ public class Minesweeper extends Application {
 
         for (int y = 0; y < yTiles; y++) {
             for (int x = 0; x < xTiles; x++) {
-                Tile tile = new Tile(x, y, Math.random() < 0.02 );
+                Tile tile = new Tile(x, y, Math.random() < 0.2 );
 
                 grid[x][y] = tile;
                 root.getChildren().add(tile);
