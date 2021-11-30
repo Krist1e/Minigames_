@@ -81,7 +81,7 @@ public class MainMenuController {
             fxmlLoader.setLocation(MainMenuController.class.getResource("MinesweeperDifficultyLayout.fxml"));
         if (Settings)
             fxmlLoader.setLocation(MainMenuController.class.getResource("SettingsLayout.fxml"));
-        if (Minesweeper.MineSweepDiff2)
+        if (Minesweeper.mineSweepDiff2)
             fxmlLoader.setLocation(Minesweeper.class.getResource("MinesweeperDifficultyLayout.fxml"));
         if (MinesweeperDifficultyController.Menu)
             fxmlLoader.setLocation(MinesweeperDifficultyController.class.getResource("SceneLayout.fxml"));
@@ -104,7 +104,7 @@ public class MainMenuController {
         TicTac = false;
         MineSweepDiff1 = false;
         Settings = false;
-        Minesweeper.MineSweepDiff2 = false;
+        Minesweeper.mineSweepDiff2 = false;
         MinesweeperDifficultyController.Menu = false;
         TicTacToe.TicMenu = false;
         SettingsController.SettingMenu = false;

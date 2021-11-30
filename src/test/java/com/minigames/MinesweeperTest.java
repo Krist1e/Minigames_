@@ -15,7 +15,6 @@ public class MinesweeperTest {
     @Before
     public void setUp() {
         minesweeperUnderTest = new Minesweeper();
-        minesweeperUnderTest.flag = mock(Image.class);
     }
 
     @Test
