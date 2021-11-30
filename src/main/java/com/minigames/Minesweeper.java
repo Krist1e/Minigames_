@@ -111,6 +111,7 @@ public class Minesweeper extends Application {
         diffReturn.setPrefSize(130, 30);
         diffReturn.setStyle("-fx-background-color: DARKSALMON");
         diffReturn.setOnMouseClicked(event -> {
+            flagCounter = 0;
             diffReturn.getScene().getWindow().hide();
             mineSweepDiff2 = true;
             MinesweeperDifficultyController.EasyDiff = false;
@@ -149,6 +150,7 @@ public class Minesweeper extends Application {
         restartGame.setOnMouseClicked(event -> {
             youWin = false;
             allBombs = 0;
+            flagCounter = 0;
             winReq = 0;
             bombCounter.setVisible(true);
             topFlag.setVisible(true);
@@ -230,7 +232,6 @@ public class Minesweeper extends Application {
             this.x = x;
             this.y = y;
             this.hasBomb = hasBomb;
-            Minesweeper f = new Minesweeper();
 
             border.setStroke(Color.BLACK);
             border.setFill(Color.LIGHTGRAY);
@@ -249,7 +250,7 @@ public class Minesweeper extends Application {
                 if(e.getButton() == MouseButton.SECONDARY){
                     Paint Flag =border.getFill();
                     if (Flag == Color.LIGHTGRAY) {
-                        border.setFill(new ImagePattern(f.flag));
+                        border.setFill(new ImagePattern(flag));
                         flagCounter++;
                     }
 
