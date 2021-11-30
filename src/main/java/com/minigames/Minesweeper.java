@@ -126,7 +126,7 @@ public class Minesweeper extends Application {
         TopFlag.setFill(new ImagePattern(flag));
         TopFlag.setTranslateY(5);
 
-        BombCounter.setText(String.valueOf(AllBombs));
+
         BombCounter.setFont(Font.font(25));
         BombCounter.setTranslateY(5);
         BombCounter.setVisible(false);
@@ -171,6 +171,7 @@ public class Minesweeper extends Application {
                     tile.text.setText(String.valueOf(bombs));
             }
         }
+        BombCounter.setText(String.valueOf(AllBombs));
     }
 
     private List<Tile> getNeighbors(Tile tile) {
