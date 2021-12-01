@@ -51,6 +51,8 @@ public class TicTacToe implements Initializable {
 
     public static Boolean TicMenu = false;
 
+    public static Boolean DrawReq = true;
+
     private int playerTurn = 0;
 
     private int Turn = 0;
@@ -82,6 +84,7 @@ public class TicTacToe implements Initializable {
         winnerText.setText("Tic-Tac-Toe");
         playerTurn = 0;
         Turn = 0;
+        DrawReq = true;
     }
 
     /**
@@ -182,18 +185,20 @@ public class TicTacToe implements Initializable {
 
             //First player is a winner
             if (line.equals("XXX")) {
+                DrawReq = false;
                 winnerText.setText("Player 1 won!");
                 buttons.forEach(this::disableButton);
             }
 
             //Second player is a winner
             else if (line.equals("OOO")) {
+                DrawReq = false;
                 winnerText.setText("Player 2 won!");
                 buttons.forEach(this::disableButton);
             }
 
             //Draw condition
-            if (!line.equals("OOO") && !line.equals("XXX") && (Turn==9)) {
+            if ((DrawReq) && (Turn==9)) {
                 winnerText.setText("Draw!");
                 buttons.forEach(this::disableButton);
             }
