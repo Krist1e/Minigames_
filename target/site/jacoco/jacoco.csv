@@ -1,8 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Minigames,com.minigames,MainMenuController,170,0,14,0,55,0,17,0,10,0
-Minigames,com.minigames,Minesweeper.Tile,306,0,22,0,63,0,16,0,5,0
-Minigames,com.minigames,MinesweeperDifficultyController,86,0,0,0,31,0,12,0,12,0
-Minigames,com.minigames,MainMenu,35,0,0,0,10,0,3,0,3,0
-Minigames,com.minigames,Minesweeper,734,0,28,0,128,0,22,0,8,0
-Minigames,com.minigames,SettingsController,58,0,2,0,19,0,8,0,7,0
-Minigames,com.minigames,TicTacToe,411,0,23,0,63,0,26,0,11,0

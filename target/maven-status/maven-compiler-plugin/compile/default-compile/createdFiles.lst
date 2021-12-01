@@ -1,8 +1,0 @@
-com\minigames\MainMenuController.class
-com\minigames\Minesweeper.class
-com\minigames\MinesweeperDifficultyController.class
-com\minigames\SettingsController.class
-module-info.class
-com\minigames\MainMenu.class
-com\minigames\Minesweeper$Tile.class
-com\minigames\TicTacToe.class

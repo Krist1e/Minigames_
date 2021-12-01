@@ -54,8 +54,6 @@ public class TicTacToe implements Initializable {
 
     public ArrayList<Button> buttons;
 
-    public ImageView X = new ImageView(String.valueOf(getClass().getResource("xicon.png")));
-    public ImageView O = new ImageView(String.valueOf(getClass().getResource("oicon.png")));
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -160,7 +158,7 @@ public class TicTacToe implements Initializable {
             }
 
             //Draw condition
-            if (!line.equals(String.valueOf(O) + O + O) && !line.equals(String.valueOf(X) + X + X) && (Turn==9)) {
+            if (!line.equals("OOO") && !line.equals("XXX") && (Turn==9)) {
                      winnerText.setText("Draw!");
                 buttons.forEach(this::disableButton);
             }

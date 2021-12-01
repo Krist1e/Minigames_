@@ -1,4 +1,0 @@
-# Created at 2021-11-25T22:31:26.949
-Boot Manifest-JAR contains absolute paths in classpath 'D:\Minigames_\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-
