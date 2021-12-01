@@ -6,17 +6,17 @@
 
 <AnchorPane fx:id="RootPane" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.MainMenuController">
    <children>
-      <Button fx:id="MinesweeperStartButton" layoutX="393.0" layoutY="210.0" mnemonicParsing="false" onAction="#MinesweeperClick" onMouseClicked="#MinesweeperClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Minesweeper" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="210.0">
+      <Button fx:id="MinesweeperStartButton" layoutX="393.0" layoutY="210.0" mnemonicParsing="false" onAction="#minesweeperClick" onMouseClicked="#minesweeperClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Minesweeper" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="210.0">
          <font>
             <Font name="Yu Gothic Regular" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="TicTacToeStartButton" layoutX="393.0" layoutY="268.0" mnemonicParsing="false" onAction="#TicTacToeClick" onMouseClicked="#TicTacToeClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Tic-Tac-Toe" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
+      <Button fx:id="TicTacToeStartButton" layoutX="393.0" layoutY="268.0" mnemonicParsing="false" onAction="#ticTacToeClick" onMouseClicked="#ticTacToeClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Tic-Tac-Toe" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
          <font>
             <Font name="Yu Gothic Regular" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="ChooseSettingsButton" layoutX="393.0" layoutY="325.0" mnemonicParsing="false" onAction="#SettingsClick" onMouseClicked="#SettingsClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Settings" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
+      <Button fx:id="ChooseSettingsButton" layoutX="393.0" layoutY="325.0" mnemonicParsing="false" onAction="#settingsClick" onMouseClicked="#settingsClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Settings" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0">
          <font>
             <Font name="Yu Gothic Regular" size="15.0" />
          </font>

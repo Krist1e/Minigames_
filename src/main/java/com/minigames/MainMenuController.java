@@ -29,25 +29,25 @@ public class MainMenuController {
     @FXML
     private Button TicTacToeStartButton;
 
-    public static Boolean Settings = false;
+    static Boolean settings = false;
 
-    public static Boolean MineSweepDiff1 = false;
+    static Boolean mineSweepDiff1 = false;
 
-    public static Boolean TicTac = false;
+    public static Boolean ticTac = false;
 
     @FXML
-    public void MinesweeperClick(ActionEvent event) {
-
+    public void minesweeperClick(ActionEvent event) {
+        // Click on Minesweeper 
     }
 
     @FXML
-    public void SettingsClick(ActionEvent event) {
-
+    public void settingsClick(ActionEvent event) {
+        // Click on Settings 
     }
 
     @FXML
-    public void TicTacToeClick(ActionEvent event) {
-
+    public void ticTacToeClick(ActionEvent event) {
+        // Click on Tic-Tac-Toe 
     }
 
 
@@ -55,31 +55,31 @@ public class MainMenuController {
     public void initialize() {
         ChooseSettingsButton.setOnAction(event -> {
             ChooseSettingsButton.getScene().getWindow().hide();
-            Settings = true;
+            settings = true;
             SceneControl();
         });
 
         MinesweeperStartButton.setOnAction(event -> {
             MinesweeperStartButton.getScene().getWindow().hide();
-            MineSweepDiff1 = true;
+            mineSweepDiff1 = true;
             SceneControl();
         });
 
 
         TicTacToeStartButton.setOnAction(event -> {
             TicTacToeStartButton.getScene().getWindow().hide();
-            TicTac = true;
+            ticTac = true;
             SceneControl();
         });
     }
 
     public static void SceneControl() {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        if (TicTac)
+        if (ticTac)
             fxmlLoader.setLocation(MainMenuController.class.getResource("TicTacToeLayout.fxml"));
-        if (MineSweepDiff1)
+        if (mineSweepDiff1)
             fxmlLoader.setLocation(MainMenuController.class.getResource("MinesweeperDifficultyLayout.fxml"));
-        if (Settings)
+        if (settings)
             fxmlLoader.setLocation(MainMenuController.class.getResource("SettingsLayout.fxml"));
         if (Minesweeper.mineSweepDiff2)
             fxmlLoader.setLocation(Minesweeper.class.getResource("MinesweeperDifficultyLayout.fxml"));
@@ -101,9 +101,9 @@ public class MainMenuController {
         stage.setScene(new Scene(root));
         stage.show();
 
-        TicTac = false;
-        MineSweepDiff1 = false;
-        Settings = false;
+        ticTac = false;
+        mineSweepDiff1 = false;
+        settings = false;
         Minesweeper.mineSweepDiff2 = false;
         MinesweeperDifficultyController.Menu = false;
         TicTacToe.TicMenu = false;
