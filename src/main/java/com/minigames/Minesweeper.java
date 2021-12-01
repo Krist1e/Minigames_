@@ -21,12 +21,12 @@ import javafx.stage.Stage;
 
 public class Minesweeper extends Application {
 
-    private static final double TileSize = 50;
-    private static final double length = 1100;
-    private static final double height = 700;
+    private static final double TILESIZE = 50;
+    private static final double LENGTH = 1100;
+    private static final double HEIGHT = 700;
 
-    private static double xTiles = length / TileSize;
-    private static double yTiles = height / TileSize;
+    private static double xTiles = LENGTH / TILESIZE;
+    private static double yTiles = HEIGHT / TILESIZE;
 
     private final Tile[][] grid = new Tile[(int) xTiles][(int) yTiles];
     private Scene scene;
@@ -49,15 +49,15 @@ public class Minesweeper extends Application {
     public Parent generateField() {
         Pane root = new Pane();
         if (MinesweeperDifficultyController.EasyDiff) {
-            xTiles = (length-600)/TileSize;
-            yTiles = (height-400)/TileSize;
-            root.setPrefSize(length-600, height-350);
-            rootRectangle.setWidth(length-600);
-            rootRectangle.setHeight(height-350);
-            topFlag.setTranslateX(length-700);
-            bombCounter.setTranslateX(length-742);
-            endRectangle.setWidth(length-600);
-            endRectangle.setHeight(height-500);
+            xTiles = (LENGTH-600)/TILESIZE;
+            yTiles = (HEIGHT-400)/TILESIZE;
+            root.setPrefSize(LENGTH-600, HEIGHT-350);
+            rootRectangle.setWidth(LENGTH-600);
+            rootRectangle.setHeight(HEIGHT-350);
+            topFlag.setTranslateX(LENGTH-700);
+            bombCounter.setTranslateX(LENGTH-742);
+            endRectangle.setWidth(LENGTH-600);
+            endRectangle.setHeight(HEIGHT-500);
             endRectangle.setTranslateY(75);
             restartGame.setTranslateX(150);
             restartGame.setTranslateY(290);
@@ -67,34 +67,34 @@ public class Minesweeper extends Application {
         }
 
         else if (MinesweeperDifficultyController.MediumDiff) {
-            xTiles = (length-300)/TileSize;
-            yTiles = (height-150)/TileSize;
-            root.setPrefSize(length-300, height-100);
-            rootRectangle.setWidth(length-300);
-            rootRectangle.setHeight(height-100);
-            endRectangle.setWidth(length-300);
-            endRectangle.setHeight(height-400);
-            endRectangle.setTranslateY((height-100)/4);
-            topFlag.setTranslateX(length-400);
+            xTiles = (LENGTH-300)/TILESIZE;
+            yTiles = (HEIGHT-150)/TILESIZE;
+            root.setPrefSize(LENGTH-300, HEIGHT-100);
+            rootRectangle.setWidth(LENGTH-300);
+            rootRectangle.setHeight(HEIGHT-100);
+            endRectangle.setWidth(LENGTH-300);
+            endRectangle.setHeight(HEIGHT-400);
+            endRectangle.setTranslateY((HEIGHT-100)/4);
+            topFlag.setTranslateX(LENGTH-400);
             endText.setFont(Font.font(120));
-            restartGame.setTranslateX((length-200)/3);
-            restartGame.setTranslateY(height-160);
+            restartGame.setTranslateX((LENGTH-200)/3);
+            restartGame.setTranslateY(HEIGHT-160);
             endText.setTranslateY(200);
             endText.setTranslateX(115);
-            bombCounter.setTranslateX(length-442);
+            bombCounter.setTranslateX(LENGTH-442);
         }
 
         else {
-            root.setPrefSize(length, height + 50);
-            rootRectangle.setWidth(length);
-            rootRectangle.setHeight(height+50);
-            topFlag.setTranslateX(length-120);
-            bombCounter.setTranslateX(length-162);
-            endRectangle.setWidth(length);
-            endRectangle.setHeight(height-300);
-            endRectangle.setTranslateY(height/4);
-            restartGame.setTranslateX(length/2-100);
-            restartGame.setTranslateY(height-15);
+            root.setPrefSize(LENGTH, HEIGHT + 50);
+            rootRectangle.setWidth(LENGTH);
+            rootRectangle.setHeight(HEIGHT+50);
+            topFlag.setTranslateX(LENGTH-120);
+            bombCounter.setTranslateX(LENGTH-162);
+            endRectangle.setWidth(LENGTH);
+            endRectangle.setHeight(HEIGHT-300);
+            endRectangle.setTranslateY(HEIGHT/4);
+            restartGame.setTranslateX(LENGTH/2-100);
+            restartGame.setTranslateY(HEIGHT-15);
             endText.setFont(Font.font(160));
             endText.setTranslateY(250);
             endText.setTranslateX(170);
@@ -116,8 +116,8 @@ public class Minesweeper extends Application {
             mineSweepDiff2 = true;
             MinesweeperDifficultyController.EasyDiff = false;
             MinesweeperDifficultyController.MediumDiff = false;
-            xTiles = length / TileSize;
-            yTiles = height / TileSize;
+            xTiles = LENGTH / TILESIZE;
+            yTiles = HEIGHT / TILESIZE;
             MainMenuController.SceneControl();
 
         });
@@ -225,7 +225,7 @@ public class Minesweeper extends Application {
         private boolean isOpen = false;
 
 
-        private final Rectangle border = new Rectangle(TileSize - 2, TileSize - 2);
+        private final Rectangle border = new Rectangle(TILESIZE - 2, TILESIZE - 2);
         private final Text text = new Text();
 
         public Tile(int x, int y, boolean hasBomb) {
@@ -243,8 +243,8 @@ public class Minesweeper extends Application {
 
             getChildren().addAll(border, text);
 
-            setTranslateX(x * TileSize);
-            setTranslateY(y * TileSize + 50);
+            setTranslateX(x * TILESIZE);
+            setTranslateY(y * TILESIZE + 50);
 
             setOnMouseClicked(e -> {
                 if(e.getButton() == MouseButton.SECONDARY){

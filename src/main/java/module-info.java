@@ -8,7 +8,6 @@ module com.minigames {
     requires validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    // requires eu.hansolo.tilesfx;
     requires java.desktop;
     requires javafx.media;
     requires org.junit.jupiter.api;
