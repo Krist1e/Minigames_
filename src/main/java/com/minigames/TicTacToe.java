@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -81,6 +83,7 @@ public class TicTacToe implements Initializable {
     }
 
     public void resetButton(Button button){
+        button.setText("");
         button.setDisable(false);
         button.setGraphic(null);
     }
@@ -100,12 +103,15 @@ public class TicTacToe implements Initializable {
 
     public void setPlayerSymbol(Button button){
         if(playerTurn % 2 == 0) {
-            button.setGraphic(X);
+            button.setText("X");
+            button.setTextFill(Color.RED);
             playerTurn = 1;
         } else {
-            button.setGraphic(O);
+            button.setText("O");
+            button.setTextFill(Color.BLUE);
             playerTurn = 0;
         }
+        button.setFont(Font.font(30));
     }
 
     public void checkIfGameIsOver() {
@@ -113,28 +119,28 @@ public class TicTacToe implements Initializable {
             String line;
             switch (a) {
                 case 0:
-                    line = String.valueOf(button1.getGraphic()) + button2.getGraphic() + button3.getGraphic();
+                    line = button1.getText() + button2.getText() + button3.getText();
                     break;
                 case 1:
-                    line = String.valueOf(button4.getGraphic()) + button5.getGraphic() + button6.getGraphic();
+                    line = button4.getText() + button5.getText() + button6.getText();
                     break;
                 case 2:
-                    line = String.valueOf(button7.getGraphic()) + button8.getGraphic() + button9.getGraphic();
+                    line = button7.getText() + button8.getText() + button9.getText();
                     break;
                 case 3:
-                    line = String.valueOf(button1.getGraphic()) + button5.getGraphic() + button9.getGraphic();
+                    line = button1.getText() + button5.getText() + button9.getText();
                     break;
                 case 4:
-                    line = String.valueOf(button3.getGraphic()) + button5.getGraphic() + button7.getGraphic();
+                    line = button3.getText() + button5.getText() + button7.getText();
                     break;
                 case 5:
-                    line = String.valueOf(button1.getGraphic()) + button4.getGraphic() + button7.getGraphic();
+                    line = button1.getText() + button4.getText() + button7.getText();
                     break;
                 case 6:
-                    line = String.valueOf(button2.getGraphic()) + button5.getGraphic() + button8.getGraphic();
+                    line = button2.getText() + button5.getText() + button8.getText();
                     break;
                 case 7:
-                    line = String.valueOf(button3.getGraphic()) + button6.getGraphic() + button9.getGraphic();
+                    line = button3.getText() + button6.getText() + button9.getText();
                     break;
                 default:
                     line = null;
@@ -142,13 +148,13 @@ public class TicTacToe implements Initializable {
             }
 
             //First player is a winner
-            if (line.equals(String.valueOf(X) + X + X)) {
+            if (line.equals("XXX")) {
                 winnerText.setText("Player 1 won!");
                 buttons.forEach(this::disableButton);
             }
 
             //Second player is a winner
-            else if (line.equals(String.valueOf(O) + O + O)) {
+            else if (line.equals("OOO")) {
                 winnerText.setText("Player 2 won!");
                 buttons.forEach(this::disableButton);
             }

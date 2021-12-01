@@ -17,7 +17,7 @@ public class MainMenu extends Application {
         stage.setTitle("Minigames");
         stage.setResizable(false);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("icon.jpg"))));
+        //stage.getIcons().add(new Image(String.valueOf(getClass().getResource("icon.jpg"))));
         stage.show();
     }
 

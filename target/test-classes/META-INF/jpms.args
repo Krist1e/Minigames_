@@ -1,4 +1,0 @@
---patch-module
-com.minigames=_
---add-reads
-com.minigames=ALL-UNNAMED
