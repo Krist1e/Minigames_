@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 
+/**
+ * class that contains instructions for selecting difficulty of MineSweeper
+ */
 public class MinesweeperDifficultyController {
 
     @FXML
@@ -53,6 +56,9 @@ public class MinesweeperDifficultyController {
 
     }
 
+    /**
+     * contains buttons for choosing difficulties
+     */
     @FXML
     public void initialize() {
         MinesweeperEasy.setOnAction(event -> {
@@ -79,6 +85,9 @@ public class MinesweeperDifficultyController {
         });
     }
 
+    /**
+     * calling class MineSweeper
+     */
     private void MineApp() {
         Minesweeper OpenMineSweeper = new Minesweeper();
         OpenMineSweeper.start(Minesweeper.classStage);

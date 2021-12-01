@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+/**
+ * contains methods for game TicTacToe
+ */
 public class TicTacToe implements Initializable {
 
     @FXML
@@ -54,7 +57,11 @@ public class TicTacToe implements Initializable {
 
     public ArrayList<Button> buttons;
 
-
+    /**
+     * create array list of buttons of game field and set instructions for them
+     * @param url set url
+     * @param resourceBundle set resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
@@ -65,6 +72,10 @@ public class TicTacToe implements Initializable {
         });
     }
 
+    /**
+     * reset all parameters of TicTacToe game
+     * @param event action taking of the method restartGame
+     */
     @FXML
     public void restartGame(ActionEvent event) {
         buttons.forEach(this::resetButton);
@@ -73,6 +84,10 @@ public class TicTacToe implements Initializable {
         Turn = 0;
     }
 
+    /**
+     * opening MainMenu scene by calling SceneControl
+     * @param event action taking of the method ReturnToMenu
+     */
     @FXML
     public void ReturnToMenu(ActionEvent event) {
         button1.getScene().getWindow().hide();
@@ -80,16 +95,28 @@ public class TicTacToe implements Initializable {
         MainMenuController.SceneControl();
     }
 
+    /**
+     * resume buttons abilities
+     * @param button common element of array list buttons
+     */
     public void resetButton(Button button){
         button.setText("");
         button.setDisable(false);
         button.setGraphic(null);
     }
 
+    /**
+     * set buttons disable after taking actions
+     * @param buttons all buttons of TicTacToe field
+     */
     public void disableButton(Button buttons) {
         buttons.setDisable(true);
     }
 
+    /**
+     * set parameters for taking actions of the buttons
+     * @param button common element of array list buttons
+     */
     public void setupButton(Button button) {
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
@@ -99,6 +126,10 @@ public class TicTacToe implements Initializable {
         });
     }
 
+    /**
+     * set text into button according to the turn
+     * @param button common element of array of buttons
+     */
     public void setPlayerSymbol(Button button){
         if(playerTurn % 2 == 0) {
             button.setText("X");
@@ -112,6 +143,10 @@ public class TicTacToe implements Initializable {
         button.setFont(Font.font(30));
     }
 
+    /**
+     * check text positions and fill, and do actions
+     * according to that information
+     */
     public void checkIfGameIsOver() {
         for (int a = 0; a < 8; a++) {
             String line;
@@ -159,7 +194,7 @@ public class TicTacToe implements Initializable {
 
             //Draw condition
             if (!line.equals("OOO") && !line.equals("XXX") && (Turn==9)) {
-                     winnerText.setText("Draw!");
+                winnerText.setText("Draw!");
                 buttons.forEach(this::disableButton);
             }
 

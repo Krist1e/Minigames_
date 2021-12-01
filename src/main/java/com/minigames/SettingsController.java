@@ -9,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.media.AudioClip;
 
 
+/**
+ * contains instructions for turning on and off music
+ */
 public class SettingsController {
 
     @FXML
@@ -37,6 +40,10 @@ public class SettingsController {
 
     public static Boolean SettingMenu = false;
 
+    /**
+     * turn on and off music
+     * and returning to MainMenu by calling SceneControl
+     */
     @FXML
     public void initialize() {
         ReturnButton.setOnAction(event -> {
@@ -61,5 +68,3 @@ public class SettingsController {
         });
     }
 }
-
-

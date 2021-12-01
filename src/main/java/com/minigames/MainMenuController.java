@@ -11,7 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-
+/**
+ * controller for connection between games and settings
+ */
 public class MainMenuController {
 
     @FXML
@@ -50,7 +52,9 @@ public class MainMenuController {
         // Click on Tic-Tac-Toe 
     }
 
-
+    /**
+     * set actions for buttons and hiding scene
+     */
     @FXML
     public void initialize() {
         ChooseSettingsButton.setOnAction(event -> {
@@ -73,6 +77,9 @@ public class MainMenuController {
         });
     }
 
+    /**
+     *  controls moving throw different scenes
+     */
     public static void SceneControl() {
         FXMLLoader fxmlLoader = new FXMLLoader();
         if (ticTac)
