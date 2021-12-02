@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="RootPane" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.MainMenuController">
+<AnchorPane fx:id="RootPane" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.MainMenuController">
    <children>
       <Button fx:id="MinesweeperStartButton" layoutX="393.0" layoutY="210.0" mnemonicParsing="false" onAction="#minesweeperClick" onMouseClicked="#minesweeperClick" prefHeight="38.0" prefWidth="314.0" style="-fx-background-color: #AEE840;" text="Minesweeper" textAlignment="CENTER" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="210.0">
          <font>
@@ -21,5 +22,10 @@
             <Font name="Yu Gothic Regular" size="15.0" />
          </font>
       </Button>
+      <Label layoutX="285.0" layoutY="54.0" prefHeight="141.0" prefWidth="531.0" text="MINIGAMES" textFill="#aee840">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
