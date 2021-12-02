@@ -12,6 +12,9 @@ import java.io.IOException;
  */
 public class MainMenu extends Application {
 
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
     /**
      * start primary scene
      * @param stage set functions and scene for primary stage

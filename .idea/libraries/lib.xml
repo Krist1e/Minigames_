@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="lib">
-    <CLASSES>
-      <root url="jar://$PATH_TO_FX$" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
