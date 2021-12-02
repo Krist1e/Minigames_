@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@TicTacToeBackground.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.TicTacToe">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@TicTacToeBackground.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minigames.TicTacToe">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="449.0" layoutX="343.0" layoutY="148.0" stroke="WHITE" strokeType="INSIDE" width="450.0" />
         <FlowPane layoutX="343.0" layoutY="147.0" prefHeight="450.0" prefWidth="453.0" AnchorPane.leftAnchor="343.0" AnchorPane.rightAnchor="303.4" AnchorPane.topAnchor="147.0">
@@ -32,7 +32,7 @@
          <font>
             <Font name="Yu Gothic Regular" size="17.0" />
          </font></Button>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnToMenu" prefHeight="44.0" prefWidth="191.0" text="Return to Main Menu">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnToMenu" prefHeight="44.0" prefWidth="202.0" text="Return to Main Menu">
          <font>
             <Font name="Yu Gothic Regular" size="17.0" />
          </font>
